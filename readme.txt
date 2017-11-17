@@ -3,3 +3,7 @@
    版本说明：spring3.2  mybatis3.2 mysql5.6
    相关接口：
     用户接口+角色权限接口+博客接口。具体在Postman 1.1-2.5
+
+update:
+
+    add zhihuDaily with zhihudaily API
