@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.mapper.StoryMapper">
+	<resultMap id="baseStory" type="blog.dto.output.Story">
+		<id column="uid" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 自己编写的方法 -->
+	<select id="getStoryById" parameterType="java.lang.Integer" resultMap="baseStory">
+		select uid,title,image from tb_story where uid=#{id}
+	</select>
+
+	<select id="getStoryByDate" parameterType="java.lang.String" resultMap="baseStory">
+		select uid,title,image from tb_story WHERE date=#{date};
+	</select>
+
+	<select id="getStoryByNum" parameterType="java.lang.Integer" resultMap="baseStory">
+		select uid,title,image from tb_story ORDER BY date DESC LIMIT 0,#{num};
+	</select>
+
+	<insert id="insertStories" parameterType="java.util.List">
+		INSERT INTO tb_story (uid,ga_prefix,title,multipic,type,date,image)
+		VALUES 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id,jdbcType=INTEGER},#{item.ga_prefix,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.multipic,jdbcType=BOOLEAN},#{item.type,jdbcType=INTEGER},#{item.date,jdbcType=VARCHAR},#{item.image,jdbcType=VARCHAR})
+		</foreach>
+ 	</insert>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.mapper.TopNewsMapper">
+	<resultMap id="baseTopNewsList" type="blog.dto.output.TopNews">
+		<id column="uid" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<result column="date" property="topdate" jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- 自己编写的方法 -->
+	<select id="getTopNewsByDate" parameterType="java.lang.String" resultMap="baseTopNewsList">
+		select uid,title,date,image from tb_topstory where date=#{date}
+	</select>
+	<select id="getTopNewsByJs"  resultMap="baseTopNewsList">
+		select uid,title,date,image from tb_topstory ORDER BY date DESC LIMIT 0,7;
+	</select>
+
+	<insert id="insertTopStories" parameterType="java.util.List">
+		INSERT INTO tb_topstory (uid,ga_prefix,title,multipic,type,date,image)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id,jdbcType=INTEGER},#{item.ga_prefix,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.multipic,jdbcType=BOOLEAN},#{item.type,jdbcType=INTEGER},#{item.date,jdbcType=VARCHAR},#{item.image,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+
+</mapper>

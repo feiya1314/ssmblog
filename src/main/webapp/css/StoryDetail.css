@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+.main-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+}
+.content-image{
+    text-align: center;
+}
+.view {
+    margin-top: 6rem;
+    width: 100%;
+}
+.articleContent{
+    position: relative;
+    padding: 30px 50px 50px 50px;
+    background: #FFFFFF;
+    z-index: 100;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.05);
+}
+.question-title{
+    font-size: 20px;
+    line-height: 38px;
+}
+
+.content p{
+    font-size: 16px;
+}
+.content p a{
+    font-weight: 500;
+    color: #275B8C;
+}
+.content-image{
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+.view-more{
+    text-align: center;
+}
+.meta span{
+    font-size: 14px;
+}
+.content blockquote{
+    font-size: 15px;
+}
+.view-more{
+    padding-top: 40px;
+}
+.view-more a{
+    font-weight: 500;
+    color: #275B8C;
+    font-size: 16px;
+}
+

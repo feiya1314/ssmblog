@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.mapper.StoryDetailMapper">
+	<resultMap id="StoryDetailEntry" type="blog.dto.output.StoryDetails">
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="image" property="imageurl" jdbcType="VARCHAR" />
+		<result column="image_source" property="image_source" jdbcType="VARCHAR"/>
+		<result column="body" property="body" jdbcType="BLOB"/>
+	</resultMap>
+
+	<!-- 自己编写的方法 -->
+	<select id="getStoryDetailById" parameterType="java.lang.Integer" resultMap="StoryDetailEntry">
+		select title,body,image,image_source from tb_storydetails where uid=#{id}
+	</select>
+
+	<insert id="insertStoryDetails" parameterType="java.util.List">
+		INSERT INTO tb_storydetails (body,image_source,title,image,share_url,ga_prefix,type,uid,sectionid)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.body,jdbcType=BLOB},#{item.image_source,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.image,jdbcType=VARCHAR},#{item.share_url,jdbcType=VARCHAR},#{item.ga_prefix,jdbcType=VARCHAR},#{item.type,jdbcType=INTEGER},#{item.id,jdbcType=INTEGER},#{item.sectionId,jdbcType=INTEGER})
+		</foreach>
+	</insert>
+
+	<insert id="insertStoryDetail" parameterType="blog.dao.StoryDetails">
+		INSERT INTO tb_storydetails (body,image_source,title,image,share_url,ga_prefix,type,uid,sectionid)
+		VALUES
+		(#{body,jdbcType=BLOB},#{image_source,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR},#{share_url,jdbcType=VARCHAR},#{ga_prefix,jdbcType=VARCHAR},#{type,jdbcType=INTEGER},#{id,jdbcType=INTEGER},#{sectionId,jdbcType=INTEGER})
+	</insert>
+
+</mapper>
