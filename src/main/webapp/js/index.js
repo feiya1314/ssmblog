@@ -1,5 +1,17 @@
 $(function () {
     getTopNews();
+    var changeDayTimes=1;
+    $(window).scroll(function() {
+        //当内容滚动到底部时加载新的内容
+        if ($(this).scrollTop() + $(window).height() + 20 >= $(document).height() && $(this).scrollTop() > 20) {
+            //当前要加载的页码
+            var currDay=getLastDay(changeDayTimes);
+            changeDayTimes=changeDayTimes+1;
+            console.debug(changeDayTimes);
+            console.debug(currDay);
+            loadPastDayStories(currDay);
+        }
+    });
 });
 function getTopNews() {
     $.getJSON("api/topNewsByJs", function (json) {
@@ -21,9 +33,9 @@ function getTopNews() {
     });
 }
 var loadWhichDay="";
-function loadPastDayStories() {
+function loadPastDayStories(currDay) {
     //loadWhichDay
-    $.getJSON("api/moreStories",{date:"20171114"}, function (json) {
+    $.getJSON("api/moreStories",{date:currDay}, function (json) {
         entryInit(json);
     });
 
@@ -84,6 +96,13 @@ function getActionList(entryimage) {
     }
     var str2="\"></div></div></div>";
     return str1+imgurl+str2;
+}
+function getLastDay(changeDateTimes){
+    var d=new Date();
+    d.setDate(d.getDate()-changeDateTimes);
+    var m=d.getMonth()+1;
+    var result= d.getFullYear()+""+m+""+d.getDate();
+    return result;
 }
 /*
 function initPage() {

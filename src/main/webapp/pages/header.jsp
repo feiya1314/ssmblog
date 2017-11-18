@@ -10,7 +10,7 @@
 <div calss="main-header-box">
     <header class="main-header">
         <div class="container">
-            <a href="http://localhost:8080/blog/" class="logo">
+            <a href="/blog/index.jsp" class="logo">
                 <img src="/blog/images/logoFly.png" alt="feiya1314" class="logoImg">
             </a>
             <nav class="main-nav">

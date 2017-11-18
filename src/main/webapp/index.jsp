@@ -84,6 +84,7 @@
 
                 </div>
             </div>
+            <%--<button type="button" onclick="getLastDay(5)">TestBtn</button>--%>
             <div class="underTopNew">
                 <div class="explore-story-list">
                     <div class="storylist">
@@ -156,63 +157,48 @@
                         </div>
                     </div>
                     <div class="simpleIntroduce">
-
+                        <div class="nameJobContainer">
+                            <div class="nameJob">
+                                <div class="name">
+                                    <p class="nameFont">于 飞</p>
+                                </div>
+                                <div class="job">
+                                    <p class="jobFont">JAVA DEVELOPER</p>
+                                </div>
+                                <div class="delimerLine">
+                                    <hr>
+                                </div>
+                                <div class="schoolAndPhone">
+                                    <div class="school">
+                                        <img class="schoolIcon introduceImg" src="/blog/images/school.png">
+                                        <span>&nbsp;重庆大学</span>
+                                    </div>
+                                    <div class="phone">
+                                        <img class="phoneIcon introduceImg" src="/blog/images/phone.png">
+                                        <span>&nbsp;135-7084-5834</span>
+                                    </div>
+                                </div>
+                                <div class="emailContainer">
+                                    <div class="emailContent">
+                                    <div class="emailIcon"><img class="emailImg" src="/blog/images/email.png"></div>
+                                    <div>
+                                        <span>&nbsp;&nbsp;yufei1313@126.com</span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="webContainer">
+                                    <div class="webContent">
+                                        <div class="webIcon"><img class="webImg" src="/blog/images/web.png"></div>
+                                        <div>
+                                            <span>&nbsp;&nbsp;https://github.com/feiya1314</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <%--<div>
-                <h2>Hello World!</h2>
-                <form action="user/getById" method="post">
-                    <input type="submit" name="id" value="1"/>
-                </form>
-                <button type="button" id="test">tets</button>
-                <form action="/api/topNewsByJs" method="get">
-                    <input type="submit"/>topneste
-                </form>
-
-                <form action="user/user" method="post">
-                    <input type="submit" name="id" value="1"/>
-                </form>
-
-                <form action="get/entry/88899898" method="get">
-                    <input type="submit"/>rest
-                </form>
-
-                <form action="/api/topnews" method="get">
-                    <input type="submit" name="date" value="20170604"/>
-                </form>
-                <form action="user/saveuser2" method="post">
-                    <table>
-                        <tr>
-                            <td>
-                                id&nbsp; :&nbsp;&nbsp; <input type="text" name="id">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                username&nbsp; :&nbsp;&nbsp; <input type="text" name="name">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                password&nbsp; :&nbsp;&nbsp; <input type="password" name="password">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="submit" value="register"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="submit" value="register2"/>
-                            </td>
-                        </tr>
-
-                    </table>
-                </form>
-            </div>--%>
         </div>
     </main>
 </div>
