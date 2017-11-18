@@ -52,26 +52,19 @@ public class IdStorage {
         Integer[] ids=null;
         lock.lock();
         try{
-            if(!isEnd&&(idList.size()!=0)){
-                ids=idList.remove(0);
-                System.out.println("idsget-->"+ids);
-                System.out.println("idsgetSize-->"+idList.size());
-                conditionProduct.signalAll();
-            }else if(!isEnd&&(idList.size()==0)){
+            while (idList.size()==0){
                 System.out.println("empty ");
                 conditionConsume.await();
-                ids=idList.remove(0);
-                System.out.println("idsget-->"+ids);
-                System.out.println("idsgetSize-->"+idList.size());
-                conditionProduct.signalAll();
-            }else if(isEnd&&(idList.size()!=0)){
-                ids=idList.remove(0);
-                System.out.println("idsget-->"+ids);
-                System.out.println("idsgetSize-->"+idList.size());
-                conditionProduct.signalAll();
-            }else {
-                isEmpty=true;
             }
+            ids=idList.get(0);
+            if (ids[0]==0){
+                return ids;
+            }else {
+                ids=idList.remove(0);
+            }
+            System.out.println("idsget-->"+ids);
+            System.out.println("idsgetSize-->"+idList.size());
+            conditionProduct.signalAll();
         }finally {
             lock.unlock();
         }

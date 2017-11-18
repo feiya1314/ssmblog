@@ -13,15 +13,15 @@ public class InsertPastStoryuitl {
         ObtainIdUtil obtainIdUtil3=new ObtainIdUtil(idStorage,context);
         System.out.println();
         long startTime = System.currentTimeMillis();
-        new Thread(obtainIdUtil2).start();
         new Thread(obtainIdUtil).start();
+        new Thread(obtainIdUtil2).start();
         new Thread(storageIdUtil).start();
         new Thread(obtainIdUtil3).start();
         long endTime = System.currentTimeMillis();
         System.out.println("program running time "+(endTime-startTime)+"ms");
     }
     public static void main(String[] args) {
-
+        new InsertPastStoryuitl().insertPastStory();
 
     }
 }

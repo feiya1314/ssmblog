@@ -1,6 +1,7 @@
 package core.utils;
 
 import blog.dao.Story;
+import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class StorageIdUtil implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 1; i++) {
-            int date=20171031+i;
+            int date=20171029+i;
             stories = spiderUtil.getStoryByDate(String.valueOf(date));
             ids = spiderUtil.getIds();
             try {
@@ -34,7 +35,15 @@ public class StorageIdUtil implements Runnable {
             }
             dataUpdateUtil.insertStories(stories);
         }
-        idStorage.setEnd(true);
+        ids=new Integer[1];
+        ids[0]=0;
+        try{
+            idStorage.addIds(ids);
+            System.out.println("time to end");
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
         System.out.println("Storage Thread end");
     }
 }

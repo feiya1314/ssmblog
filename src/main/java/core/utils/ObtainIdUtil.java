@@ -17,19 +17,24 @@ public class ObtainIdUtil implements Runnable {
 
     @Override
     public void run() {
-        while(!(idStorage.isEnd()&&idStorage.isEmpty())){
+        while(true){
             try {
                 ids=idStorage.getIds();
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
             if(ids!=null) {
+                if(ids[0]==0){
+                    System.out.println("Obtain End");
+                    break;
+                }
+                System.out.println("ids content-->"+ids.toString());
+                System.out.println("idssize content-->"+ids.length);
                 for (int i = 0; i < ids.length; i++) {
                     dataUpdateUtil.insertStoryDetails(ids[i]);
                 }
             }
         }
-        System.out.println("Obtain thread end");
 
     }
 }
