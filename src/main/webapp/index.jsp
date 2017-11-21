@@ -174,8 +174,8 @@
                                         <span>&nbsp;重庆大学</span>
                                     </div>
                                     <div class="phone">
-                                        <img class="phoneIcon introduceImg" src="/blog/images/phone.png">
-                                        <span>&nbsp;135-7084-5834</span>
+                                        <img class="phoneIcon introduceImg" src="/blog/images/cellphone.png">
+                                        <span>135-7084-5834</span>
                                     </div>
                                 </div>
                                 <div class="emailContainer">
@@ -193,6 +193,28 @@
                                             <span>&nbsp;&nbsp;https://github.com/feiya1314</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="delimerLine">
+                                    <hr>
+                                </div>
+                                <div class="abalityIntroduce">
+                                    <div class="abality">
+                                        <div>
+                                            <span>:: 2年java开发经验</span>
+                                        </div>
+                                        <div>
+                                            <span>:: 扎实的Java基础</span>
+                                        </div>
+                                        <div>
+                                            <span>:: 熟练掌握Spring、SpringMVC</span><br>
+                                            <span>&nbsp;&nbsp;&nbsp;等框架的开发及原理</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="viewMoreBtn">
+                                    <dic class="viewMore">
+                                        <button class="moreBtn" type="button" href="#">View More</button>
+                                    </dic>
                                 </div>
                             </div>
                         </div>
