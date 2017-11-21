@@ -211,6 +211,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="delimerLineEnd">
+                                    <hr>
+                                </div>
                                 <div class="viewMoreBtn">
                                     <dic class="viewMore">
                                         <button class="moreBtn" type="button" href="#">View More</button>

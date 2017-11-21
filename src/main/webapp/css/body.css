@@ -391,13 +391,20 @@
     float: left;
 }
 .viewMoreBtn{
-    margin-top: 1rem;
+    margin-top: 0rem;
 }
 .moreBtn{
     width: 8rem;
     height: 2.5rem;
-    cursor:hand;
+    cursor:pointer;
     background: white;
     border:0.5px solid #aaaaaa;
-
+}
+.delimerLineEnd{
+    width: 94%;
+    height: 0.5rem;
+    margin: 1rem auto 0.3rem auto;
+}
+.delimerLineEnd hr{
+    border:0.5px solid #aaaaaa;
 }
