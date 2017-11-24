@@ -17,7 +17,7 @@
 	</select>
 
 	<insert id="insertTopStories" parameterType="java.util.List">
-		INSERT INTO tb_topstory (uid,ga_prefix,title,multipic,type,date,image)
+		INSERT ignore INTO tb_topstory (uid,ga_prefix,title,multipic,type,date,image)
 		VALUES
 		<foreach collection="list" item="item" index="index" separator=",">
 			(#{item.id,jdbcType=INTEGER},#{item.ga_prefix,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.multipic,jdbcType=BOOLEAN},#{item.type,jdbcType=INTEGER},#{item.date,jdbcType=VARCHAR},#{item.image,jdbcType=VARCHAR})
