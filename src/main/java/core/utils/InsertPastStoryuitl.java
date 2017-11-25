@@ -7,7 +7,7 @@ public class InsertPastStoryuitl {
     public void insertPastStory(){
         IdStorage idStorage=new IdStorage();
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml", "classpath:spring-mybatis.xml", "classpath:spring-mvc.xml");
-        StorageIdUtil storageIdUtil=new StorageIdUtil(idStorage,context);
+        StorageIdUtil storageIdUtil=new StorageIdUtil(idStorage,context,20171003,-10);
         ObtainIdUtil obtainIdUtil=new ObtainIdUtil(idStorage,context);
         ObtainIdUtil obtainIdUtil2=new ObtainIdUtil(idStorage,context);
         ObtainIdUtil obtainIdUtil3=new ObtainIdUtil(idStorage,context);

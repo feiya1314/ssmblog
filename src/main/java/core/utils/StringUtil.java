@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class StringUtil {
 
-
+	/*format yyyyMMDD*/
 	public static String getCurrentDate(){
 		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyyMMdd");
 		return simpleDateFormat.format(new Date());

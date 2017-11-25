@@ -18,22 +18,22 @@
                     <li class="main-nav-list">
                         <ul class="nav-items">
                             <li class="nav-item">
-                                <a href="#">今日热闻</a>
+                                <a class="indexPage" href="/blog/index.jsp">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#">日常心理学</a>
+                                <a class="hotNewsPage" href="/blog/get/hotNews">今日热闻</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#">不许无聊</a>
+                                <a class="daliyPsychologyPage" href="#">日常心理学</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#">体育日报</a>
+                                <a class="daliySportsPage" href="#">体育日报</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#">用户推荐</a>
+                                <a class="pepoleRecommendPage" href="#">用户推荐</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#">更多内容</a>
+                                <a class="moreContent" href="#">更多内容</a>
                             </li>
                         </ul>
                     </li>

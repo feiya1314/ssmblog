@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script src="/blog/js/header.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="/blog/css/header.css"/>
 <link rel="stylesheet" type="text/css" href="/blog/css/common.css"/>
 

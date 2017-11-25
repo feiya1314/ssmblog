@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+body{
+    width: 100%;
+    overflow-y: scroll;
+}
 .main-container {
     margin: 0 auto;
     position: relative;

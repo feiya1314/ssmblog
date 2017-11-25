@@ -1,14 +1,17 @@
 package core.utils;
 
+import blog.dao.HotNews;
 import blog.dao.Story;
 import blog.dao.StoryDetails;
 import blog.dao.TopStory;
+import blog.service.IHotNewsService;
 import blog.service.IStoryDetailService;
 import blog.service.IStoryService;
 import blog.service.ITopNewsService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
@@ -117,13 +120,36 @@ public class DataUpdateUtil {
         //iStoryService.insertStories(list);
         //TODO implements update stories
     }
+    public void updateHotNews()throws IOException{
+
+        final HashSet<Integer> integers=null;
+        final HotNews[] hotNews=new SpiderUtil().getHotNews().getRecent();
+        for(HotNews temp:hotNews){
+            integers.add(temp.getNews_id());
+        }
+        System.out.println("get integer length"+integers.size());
+        final IHotNewsService iHotNewsService=(IHotNewsService)context.getBean("hotNewsService");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                iHotNewsService.insertHotNews(hotNews);
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                insertStoryDetails(integers);
+            }
+        });
+    }
 
     public void insertPastStory(){
         new InsertPastStoryuitl().insertPastStory();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         DataUpdateUtil dataUpdateUtil = new DataUpdateUtil();
         dataUpdateUtil.insertTodayStories();
+        dataUpdateUtil.updateHotNews();
 
         /*dataUpdateUtil.insertStoryDetails(9656917);
         dataUpdateUtil.insertStoryDetails(9656954);

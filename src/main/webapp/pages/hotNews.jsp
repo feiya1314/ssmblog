@@ -1,103 +1,39 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: yufei
+  Date: 2017/11/10
+  Time: 15:23
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-    <%--<meta name="referrer" content="never">--%>
-    <jsp:include page="pages/common.jsp"></jsp:include>
-    <script type="text/javascript" src="js/jQuery-jcImgScroll.js"></script>
+    <jsp:include page="/pages/common.jsp"></jsp:include>
+    <script src="/blog/js/StoryImagesLoad.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/blog/css/body.css"/>
-    <title>Zhihu Daily</title>
-    <meta name="pageIdentity" content="index">
+    <title>zhihu daily - HotNews</title>
+    <meta name="pageIdentity" content="hotNews">
 </head>
 <body>
-
 <div class="viewcontainer">
-    <jsp:include page="pages/header.jsp"></jsp:include>
+    <jsp:include page="/pages/header.jsp"></jsp:include>
     <main class="container main-container">
         <div class="view">
-            <div class="topnews">
-                <div id="topnewscontainer" class="jcImgScroll">
-                    <div class="largestTopImg">
-                        <a class="topNewsAdd" href="#" target="_blank" title="">
-                            <img src="/blog/images/default.png" class="largeImg">
-                            <div class="articletitleLarge">
-                                <p class="articletitleTop"></p>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="smallTopImgs">
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="/blog/images/default.png" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="#" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="/blog/images/default.png" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="/blog/images/default.png" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="/blog/images/default.png" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="rightImg">
-                            <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="/blog/images/default.png" class="smallImg">
-                                <div class="articletitlesmall">
-                                    <p class="articletitle"></p>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <%--<button type="button" onclick="getLastDay(5)">TestBtn</button>--%>
-            <div class="underTopNew">
+            <div class="storyListZone">
                 <div class="explore-story-list">
                     <div class="storylist">
                         <div class="storyitem1"><%--<button type="button" onclick="loadPastDayStories();">addmorestory</button>--%></div>
-                        <%--<div class="storyitem">
+                        <c:forEach var="list" items="${stories}">
+                            <div class="storyitem">
                             <div class="entry">
                                 <div class="entryAddrAndAction">
                                     <div class="entryAddr">
-                                        <a href="get/entry/4772126" target="_blank" title="">
+                                        <a href="/blog/get/entry/${list.id}" target="_blank" title="">
                                             <div class="entryinfo">
                                                 <div class="entrytitle">
-                                                    <p class="entrytitlecontent">woxianzaishigeceshi 很好的护额韩国</p>
+                                                    <p class="entrytitlecontent">${list.title}</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -114,15 +50,16 @@
                                     </div>
                                 </div>
                                 <div class="entryimage">
-                                    <img src="/blog/images/entrydefault.png">
+                                    <img src='/blog/api/imgUrl?imgurl=${list.image}'>
                                 </div>
                             </div>
                         </div>
-                        <div class="storyitem">
+                        </c:forEach>
+                        <%--<div class="storyitem">
                             <div class="entry">
                                 <div class="entryAddrAndAction">
                                     <div class="entryAddr">
-                                        <a href="get/entry/4772126" target="_blank" title="">
+                                        <a href="/blog/get/entry/9657004" target="_blank" title="">
                                             <div class="entryinfo">
                                                 <div class="entrytitle">
                                                     <p class="entrytitlecontent">woxianzaishigeceshi 很好的护额韩国</p>
@@ -146,6 +83,7 @@
                                 </div>
                             </div>
                         </div>--%>
+
                         <div class="flag"><br></div>
                     </div>
                 </div>
@@ -181,10 +119,10 @@
                                 </div>
                                 <div class="emailContainer">
                                     <div class="emailContent">
-                                    <div class="emailIcon"><img class="emailImg" src="/blog/images/email.png"></div>
-                                    <div>
-                                        <span>&nbsp;&nbsp;yufei1313@126.com</span>
-                                    </div>
+                                        <div class="emailIcon"><img class="emailImg" src="/blog/images/email.png"></div>
+                                        <div>
+                                            <span>&nbsp;&nbsp;yufei1313@126.com</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="webContainer">
@@ -228,6 +166,5 @@
         </div>
     </main>
 </div>
-<script type="text/javascript" src="/blog/js/index.js"></script>
 </body>
 </html>

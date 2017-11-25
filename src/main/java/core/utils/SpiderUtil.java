@@ -62,7 +62,18 @@ public class SpiderUtil {
         }
         return list;
     }
-
+public HotNewsJson getHotNews()throws IOException{
+    HotNewsJson hotNews=null;
+    String hotNewsUrl;
+    String result;
+    ObjectMapper oMapper=new ObjectMapper();
+    hotNewsUrl=RequestUrls.getHotNews();
+    result=HttpClientHelper.sendGet(hotNewsUrl, null, "utf-8");
+    if(result!=null&&result!=""){
+          hotNews=oMapper.readValue(result, HotNewsJson.class);
+    }
+    return hotNews;
+}
     private LatestNews getLatestNews(){
         LatestNews result=null;
         ObjectMapper oMapper=new ObjectMapper();

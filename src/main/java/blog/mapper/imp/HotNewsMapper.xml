@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.mapper.HotNewsMapper">
+	<resultMap id="baseHotNews" type="blog.dto.output.Story">
+		<id column="uid" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="thumbnail" property="image" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 自己编写的方法 -->
+	<select id="getHotStoryById" parameterType="java.lang.Integer" resultMap="baseHotNews">
+		select uid,title,image from tb_hotnews where uid=#{id}
+	</select>
+
+	<select id="getHotStory"  resultMap="baseHotNews">
+		select uid,title,image from tb_hotnews;
+	</select>
+
+	<select id="getHotStoryByNum" parameterType="java.lang.Integer" resultMap="baseHotNews">
+		select uid,title,thumbnail from tb_hotnews ORDER BY uid DESC LIMIT 0,#{num};
+	</select>
+
+	<insert id="insertHotNews">
+		INSERT ignore INTO tb_hotnews (uid,title,thumbnail,url)
+		VALUES 
+		<foreach collection="array" item="item" index="index" separator=",">
+			(#{item.news_id,jdbcType=INTEGER},#{item.title,jdbcType=VARCHAR},#{item.thumbnail,jdbcType=VARCHAR},#{item.url,jdbcType=VARCHAR})
+		</foreach>
+ 	</insert>
+</mapper>

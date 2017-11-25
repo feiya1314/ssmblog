@@ -1,4 +1,14 @@
 @CHARSET "UTF-8";
+body{
+    width: 100%;
+    overflow-y: scroll;
+}
+.viewcontainer{
+    width: 100%;
+}
+.main-header-box{
+    width: 100%;
+}
 .main-container {
     margin: 0 auto;
     position: relative;
@@ -92,6 +102,9 @@
 }
 
 .underTopNew{
+    display: flex;
+}
+.storyListZone{
     display: flex;
 }
 /*storylist*/
@@ -399,6 +412,7 @@
     cursor:pointer;
     background: white;
     border:0.5px solid #aaaaaa;
+    border-radius: 5px;
 }
 .delimerLineEnd{
     width: 94%;

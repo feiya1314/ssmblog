@@ -9,7 +9,8 @@ public class RequestUrls {
 	private static String shortComments="http://news-at.zhihu.com/api/4/story/";
 	private static String storyThemes="http://news-at.zhihu.com/api/4/themes";
 	private static String themesById="http://news-at.zhihu.com/api/4/theme/";
-	
+	private static String hotNews="http://news-at.zhihu.com/api/3/news/hot";
+
 	public static String getLatestNews() {
 		return latestNews;
 	}
@@ -34,6 +35,7 @@ public class RequestUrls {
 	public static String getThemesById(String id) {
 		return themesById+id;
 	}
+	public static String getHotNews(){return hotNews;}
 	
 	public static void main(String[] args) {
 		System.out.println(RequestUrls.getLongComments("123456"));
