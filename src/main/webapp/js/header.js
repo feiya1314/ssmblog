@@ -5,10 +5,12 @@ $(function () {
         $(".indexPage").css("color","#007fff");
     }else if(identityPage=="hotNews"){
         $(".hotNewsPage").css("color","#007fff");
-    }else if(identityPage=="daliyPsychology"){
+    }else if(identityPage=="dailyPsychology"){
         $(".daliyPsychologyPage").css("color","#007fff");
-    }else if(identityPage=="pepoleRecommend"){
+    }else if(identityPage=="peopleRecommend"){
         $(".pepoleRecommendPage").css("color","#007fff");
+    }else if(identityPage=="dailySports"){
+        $(".daliySportsPage").css("color","#007fff");
     }
     var currentColor;
     $(".nav-item").find("a").mouseover(function () {

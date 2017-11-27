@@ -24,13 +24,13 @@
                                 <a class="hotNewsPage" href="/blog/get/hotNews">今日热闻</a>
                             </li>
                             <li class="nav-item">
-                                <a class="daliyPsychologyPage" href="#">日常心理学</a>
+                                <a class="daliyPsychologyPage" href="/blog/get/dailyPsychology">日常心理学</a>
                             </li>
                             <li class="nav-item">
-                                <a class="daliySportsPage" href="#">体育日报</a>
+                                <a class="daliySportsPage" href="/blog/get/dailySports">体育日报</a>
                             </li>
                             <li class="nav-item">
-                                <a class="pepoleRecommendPage" href="#">用户推荐</a>
+                                <a class="pepoleRecommendPage" href="/blog/get/peopleRecommend">用户推荐</a>
                             </li>
                             <li class="nav-item">
                                 <a class="moreContent" href="#">更多内容</a>
