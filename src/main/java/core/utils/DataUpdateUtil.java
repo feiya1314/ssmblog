@@ -1,13 +1,9 @@
 package core.utils;
 
-import blog.dao.HotNews;
-import blog.dao.Story;
-import blog.dao.StoryDetails;
-import blog.dao.TopStory;
-import blog.service.IHotNewsService;
-import blog.service.IStoryDetailService;
-import blog.service.IStoryService;
-import blog.service.ITopNewsService;
+import blog.controller.EntryImageController;
+import blog.dao.*;
+import blog.service.*;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,6 +19,7 @@ import java.util.List;
  */
 public class DataUpdateUtil {
     private ApplicationContext context;
+    private Logger logger=Logger.getLogger(DataUpdateUtil.class);
 
     public DataUpdateUtil() {
         context = new ClassPathXmlApplicationContext("classpath:spring.xml", "classpath:spring-mybatis.xml", "classpath:spring-mvc.xml");
@@ -72,6 +69,7 @@ public class DataUpdateUtil {
 
             while(iterator.hasNext()){
                 id=iterator.next();
+                logger.debug("insert story detail id == "+id);
                 StoryDetails storyDetails = new SpiderUtil().getStoryDetails(String.valueOf(id));
                 if (storyDetails != null) {
                     IStoryDetailService iStoryDetailService = (IStoryDetailService) context.getBean("storyDetailService");
@@ -122,10 +120,10 @@ public class DataUpdateUtil {
     }
     public void updateHotNews()throws IOException{
 
-        final HashSet<Integer> integers=null;
+        final HashSet<Integer> integers=new HashSet<>();
         final HotNews[] hotNews=new SpiderUtil().getHotNews().getRecent();
-        for(HotNews temp:hotNews){
-            integers.add(temp.getNews_id());
+        for (int i = 0; i <hotNews.length ; i++) {
+            integers.add(hotNews[i].getNews_id());
         }
         System.out.println("get integer length"+integers.size());
         final IHotNewsService iHotNewsService=(IHotNewsService)context.getBean("hotNewsService");
@@ -140,16 +138,64 @@ public class DataUpdateUtil {
             public void run() {
                 insertStoryDetails(integers);
             }
-        });
+        }).start();
     }
 
     public void insertPastStory(){
         new InsertPastStoryuitl().insertPastStory();
     }
+
+    public void insertThemeStory()throws IOException{
+        SpiderUtil spiderUtil=new SpiderUtil();
+        final StoryThemes[] sportsThemes;
+        final HashSet<Integer> integers=new HashSet<>();
+        final StoryThemes[] psychologyThemes;
+        final StoryThemes[] recommendThemes;
+        final IThemeStoryService storyService=(IThemeStoryService)context.getBean("themeStoryService");
+        sportsThemes=spiderUtil.getStoryThemesByid("8").getStories();
+        psychologyThemes=spiderUtil.getStoryThemesByid("13").getStories();
+        recommendThemes=spiderUtil.getStoryThemesByid("12").getStories();
+        for (int i = 0; i < sportsThemes.length; i++) {
+            integers.add(sportsThemes[i].getId());
+        }
+        for (int i = 0; i < psychologyThemes.length; i++) {
+            integers.add(psychologyThemes[i].getId());
+        }
+        for (int i = 0; i < recommendThemes.length; i++) {
+            integers.add(recommendThemes[i].getId());
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                storyService.insertPsychologyTheme(psychologyThemes);
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                storyService.insertRecommendTheme(recommendThemes);
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                storyService.insertSportsTheme(sportsThemes);
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                insertStoryDetails(integers);
+            }
+        }).start();
+    }
+
+
     public static void main(String[] args) throws IOException{
         DataUpdateUtil dataUpdateUtil = new DataUpdateUtil();
-        dataUpdateUtil.insertTodayStories();
-        dataUpdateUtil.updateHotNews();
+        //dataUpdateUtil.insertTodayStories();
+        //dataUpdateUtil.updateHotNews();
+        dataUpdateUtil.insertThemeStory();
 
         /*dataUpdateUtil.insertStoryDetails(9656917);
         dataUpdateUtil.insertStoryDetails(9656954);

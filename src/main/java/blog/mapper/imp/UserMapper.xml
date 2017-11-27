@@ -25,7 +25,7 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="blog.dao.User">
-		insert into b_user (id, name, password,
+		insert ignore into b_user (id, name, password,
 		level, des, tel, address
 		)
 		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
@@ -35,7 +35,7 @@
 		)
 	</insert>
 	<insert id="insertSelective" parameterType="blog.dao.User">
-		insert into b_user
+		insert ignore into b_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,

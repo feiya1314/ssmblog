@@ -6,6 +6,7 @@ import blog.service.IStoryService;
 import blog.service.ITopNewsService;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -73,6 +74,20 @@ public HotNewsJson getHotNews()throws IOException{
           hotNews=oMapper.readValue(result, HotNewsJson.class);
     }
     return hotNews;
+}
+
+public StoryThemesJson getStoryThemesByid(String id)throws IOException{
+    StoryThemesJson storyThemesJson=null;
+    String themeUrl;
+    String result;
+    ObjectMapper oMapper=new ObjectMapper();
+    themeUrl=RequestUrls.getThemesById(id);
+    result=HttpClientHelper.sendGet(themeUrl, null, "utf-8");
+    if(result!=null&&result!=""){
+        storyThemesJson=oMapper.readValue(result, StoryThemesJson.class);
+    }
+    return storyThemesJson;
+
 }
     private LatestNews getLatestNews(){
         LatestNews result=null;

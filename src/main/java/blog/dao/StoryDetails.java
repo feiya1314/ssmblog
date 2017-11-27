@@ -15,6 +15,7 @@ public class StoryDetails {
         private List<String> images=null;
         private List<String> js=null;
         private String ga_prefix="";
+        private Theme theme;
         private Integer type=0;
         private List<String> css=null ;
         private Integer id=0;
@@ -22,6 +23,14 @@ public class StoryDetails {
         private Set<Recommender> recommenders=null;
         private List<String> avatar=null;
         private Integer sectionId=0;
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
 
     public String getBody() {
         return body;
