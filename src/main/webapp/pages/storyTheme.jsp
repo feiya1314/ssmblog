@@ -11,7 +11,6 @@
 <html>
 <head>
     <jsp:include page="/pages/common.jsp"></jsp:include>
-    <script src="/blog/js/StoryImagesLoad.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/blog/css/body.css"/>
     <title>zhihu daily - ${pageIdentity}</title>
     <meta name="pageIdentity" content="${pageIdentity}">
