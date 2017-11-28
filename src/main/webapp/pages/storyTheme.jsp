@@ -50,7 +50,12 @@
                                     </div>
                                 </div>
                                 <div class="entryimage">
+                                    <c:if test='${list.image!=""}'>
                                     <img src='/blog/api/imgUrl?imgurl=${list.image}'>
+                                    </c:if>
+                                    <c:if test='${list.image==""}'>
+                                        <img src='/blog/images/blankImg.png'>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
