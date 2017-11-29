@@ -10,6 +10,8 @@ body{
     max-width: 960px;
 }
 .content-image{
+    max-width: 860px;
+    max-height: 860px;
     text-align: center;
 }
 .view {
