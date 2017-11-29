@@ -7,8 +7,9 @@ $(function(){
     });
 
    var questionTitle=$(".question-title").text();
-    //console.debug(questionTitle);
-    if(""==questionTitle){
+   var questionTitle2=$(".headline-title").text();
+    console.debug(questionTitle2);
+    if(""==questionTitle&&questionTitle2==""){
         questionTitle=$("title").text();
         console.debug(questionTitle);
         $(".question-title").text(questionTitle);
