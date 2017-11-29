@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,10 +20,16 @@
     <jsp:include page="/pages/header.jsp"></jsp:include>
     <main class="container main-container">
         <div class="view">
+            <c:if test='${storydetails.imageurl!=""}'>
+            <div id="titleImg"class="titleImgClass">
+                <div class="wordOnImgContainer">
+                    <div class="wordOnImg"><p class="image_source">${storydetails.image_source}</p></div>
+                    <img class="imageDetail" src='${storydetails.imageurl}'>
+                </div>
+            </div>
+            </c:if>
             <div class="articleContent">
                 ${storydetails.body}<br>
-                    <a>${storydetails.imageurl}</a><br>
-                    <a>${storydetails.image_source}</a><br>
             </div>
             <div class="extra">
                 <br><br>

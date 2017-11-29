@@ -39,7 +39,7 @@
                         </div>
                         <div class="rightImg">
                             <a class="topNewsAdd" href="#" target="_blank" title="">
-                                <img src="#" class="smallImg">
+                                <img src="/blog/images/default.png" class="smallImg">
                                 <div class="articletitlesmall">
                                     <p class="articletitle"></p>
                                 </div>
