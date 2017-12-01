@@ -128,6 +128,12 @@
 		</dependency>
 		<!-- springMVC end -->
 		<!-- spring4 end -->
+		<!--spring security-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
