@@ -12,8 +12,17 @@ public class User {
     private String des;
 
     private String tel;
+    private String email;
 
     private String address;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;

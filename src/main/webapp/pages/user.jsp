@@ -8,7 +8,6 @@
 </head>
 <body>
   <a>User:</a><br>
-  <a>${userName}</a><br>
-  <a>${userDesc}</a>
+  <a>hello !${user.name}</a><br>
 </body>
 </html>
