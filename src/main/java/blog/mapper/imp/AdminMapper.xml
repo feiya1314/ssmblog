@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="blog.mapper.AdminMapper">
+	<resultMap id="BaseResultMap" type="blog.dao.Admin">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="admin_name" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="isfreezen" property="isFreezen" jdbcType="BOOLEAN" />
+		<result column="role" property="role" jdbcType="INTEGER" />
+		<result column="headurl" property="headUrl" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="getAdminByName" resultMap="BaseResultMap">
+		select id,admin_name,password,isfreezen,role,headurl from tb_admin where admin_name = #{adminname}
+	</select>
+	<insert id="insertAdminDetailInfo" parameterType="blog.dao.AdminDetailInfo">
+		INSERT INTO tb_admin (id,admin_name,password,email,phone,headurl,isfreezen,level,role)
+		VALUES (#{id,jdbcType=INTEGER},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{headUrl,jdbcType=VARCHAR},#{isFreezen,jdbcType=BOOLEAN},#{level,jdbcType=INTEGER},#{role,jdbcType=INTEGER})
+	</insert>
+</mapper>

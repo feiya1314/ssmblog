@@ -12,5 +12,8 @@
 </head>
 <body>
     <p>admin page</p>
+    uaername:${admin.username}<br>
+id:${admin.id}<br>
+role:${admin.role}
 </body>
 </html>

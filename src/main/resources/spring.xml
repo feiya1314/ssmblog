@@ -16,6 +16,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 
 	<!-- 自动扫描(自动注入) -->
 	<context:component-scan base-package="blog.service" />
+	<context:component-scan base-package="blog.security.service" />
 	<context:component-scan base-package="blog.controller" />
 	
 

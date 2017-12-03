@@ -21,19 +21,23 @@
     <security:http pattern="/get/*" security="none"></security:http>
     <security:http pattern="/get/entry/*" security="none"></security:http>
     <security:http pattern="/index.jsp" security="none"></security:http>
-    <security:http pattern="/" security="none"></security:http>
-    <security:http auto-config="true">
-        <security:intercept-url pattern="/adminTopThanSky/**" access="ROLE_ADMIN"></security:intercept-url>
-        <security:intercept-url pattern="/**" access="ROLE_USER"></security:intercept-url>
-        <security:form-login login-page="/login"/>
-        <security:logout delete-cookies="JSESSIONID"></security:logout>
+    <!--<security:http pattern="/" security="none"></security:http>-->
+
+    <!--设置匹配admin url，登录页面和所拥有的权限，以及引用adminAutnenticationManager验证管理 -->
+    <security:http auto-config="true" pattern="/adminTopThanSky/**" use-expressions="true"
+                   authentication-manager-ref="adminAutnenticationManager">
+        <security:form-login login-page="/pages/adminLoginLogin.jsp" authentication-failure-url="/pages/adminLoginLogin.jsp"
+                             username-parameter="username" password-parameter="password"
+                             login-processing-url="/adminTopThanSky/adminLogin"
+                             default-target-url="/adminTopThanSky/adminfeiya"/>
+        <security:logout logout-url="/adminTopThanSky/logout" logout-success-url="/pages/adminLoginLogin.jsp"/>
+        <security:intercept-url pattern="/adminTopThanSky/**" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
     </security:http>
-    <security:authentication-manager>
-        <security:authentication-provider>
-            <security:user-service>
-                <security:user name="user" password="pppppp" authorities="ROLE_USER"></security:user>
-                <security:user name="root" password="feiya1314" authorities="ROLE_ADMIN"></security:user>
-            </security:user-service>
+
+    <security:authentication-manager id="adminAutnenticationManager">
+        <security:authentication-provider user-service-ref="adminDetailService">
+           <!-- <security:password-encoder hash="md5"/>-->
         </security:authentication-provider>
     </security:authentication-manager>
+
 </beans>

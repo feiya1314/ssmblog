@@ -1,5 +1,9 @@
 package blog.controller;
 
+import blog.dao.Admin;
+import blog.dto.output.AdminSimpleInfo;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +20,17 @@ public class AdminController {
     public ModelAndView GotoAdminPage(){
         logger.debug("proccessing GotoAdminPage");
         ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("name","admin");
+        AdminSimpleInfo adminSimpleInfo=new AdminSimpleInfo();
+        SecurityContext securityContext= SecurityContextHolder.getContext();
+        Object admin=securityContext.getAuthentication().getPrincipal();
+        if(admin instanceof Admin){
+            adminSimpleInfo.setFreezen(((Admin) admin).isFreezen());
+            adminSimpleInfo.setHeadUrl(((Admin) admin).getHeadUrl());
+            adminSimpleInfo.setId(((Admin) admin).getId());
+            adminSimpleInfo.setUsername(((Admin) admin).getUsername());
+            adminSimpleInfo.setRole(((Admin) admin).getRole());
+        }
+        modelAndView.addObject("admin",adminSimpleInfo);
         modelAndView.setViewName("admin");
         return modelAndView;
     }
