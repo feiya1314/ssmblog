@@ -113,6 +113,16 @@
     content: "\b7";
     margin: 0 .4rem;
 }
+.headImgContainer{
+    padding-left: 3.5rem;
+    overflow: hidden;
+}
+.headImg{
+    margin: 0 auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
 li {
     float: left;
     list-style: none;

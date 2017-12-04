@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div calss="main-header-box">
     <header class="main-header">
         <div class="container">
@@ -35,6 +35,21 @@
                             <li class="nav-item">
                                 <a class="moreContent" href="#">更多内容</a>
                             </li>
+                            <li class="nav-item writearticle">
+                                <img src="/blog/images/article.svg" class="articleicon">
+                                <span class="towrite">写文章</span>
+                            </li>
+                            <c:if test="${empty sessionScope.username}">
+                                <li class="nav-item loginRegister">
+                                    <span class="login">登录</span>
+                                    <span class="register">注册</span>
+                                </li>
+                            </c:if>
+                            <c:if test="${not empty sessionScope.username}">
+                                <li class="nav-item headImgContainer">
+                                    <img src="/blog/images/3.jpg" class="headImg">
+                                </li>
+                            </c:if>
                         </ul>
                     </li>
                     <li class="nav-item-add"></li>
