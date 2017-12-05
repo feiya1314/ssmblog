@@ -128,3 +128,6 @@ li {
     list-style: none;
     text-align: -webkit-match-parent;
 }
+[v-cloak]{
+    display: none;
+}

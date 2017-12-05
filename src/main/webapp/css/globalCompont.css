@@ -1,0 +1,153 @@
+div{
+    display: block;
+}
+.auth-modal-box{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 500;
+}
+
+.auth-form {
+    display: block;
+    margin-top: 0em;
+    position: relative;
+    padding: 2rem;
+    width: 26.5rem;
+    max-width: 100%;
+    font-size: 1.167rem;
+    background-color: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.panfish .normal {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10rem;
+    -webkit-transform: translate(-50%, -83%);
+    transform: translate(-50%, -83%);
+    z-index: 1;
+    border-style: none;
+}
+
+.panfish .greeting {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10rem;
+    -webkit-transform: translate(-50%, -75.8%);
+    transform: translate(-50%, -75.8%);
+    z-index: 1;
+    border-style: none;
+}
+
+.panfish .blindfold {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 8.6rem;
+    -webkit-transform: translate(-50%, -75%);
+    transform: translate(-50%, -75%);
+    z-index: 1;
+    border-style: none;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    opacity: .4;
+    font-style: italic;
+}
+
+.ion-close-round:before {
+    content: "\f129";
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.loginTitle{
+    font-size: 1.5rem;
+    margin: 0 0 2rem;
+}
+.input-group{
+    margin-bottom: .5rem;
+    overflow: hidden;
+}
+.input-box{
+    position: relative;
+    margin-bottom: .8rem;
+}
+.input{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: 2px;
+    outline: none;
+    box-sizing: border-box;
+    overflow: visible;
+}
+.loginBtn{
+    width: 100%;
+    height: 3.334rem;
+    color: #fff;
+    background-color: #007fff;
+    border-radius: 2px;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color .3s,color .3s;
+    border: none;
+    padding: .5rem 1.3rem;
+    overflow: visible;
+    font: inherit;
+    margin: 0;
+}
+.prompt-box{
+    margin: 1rem 0 0;
+    color: #8b9196;
+}
+.prompt-box .clickable{
+    color: #007fff;
+    cursor: pointer;
+}
+.prompt-box .right{
+    float: right;
+    text-decoration: none;
+}
+.oauth-box{
+    margin-top: 2.3rem;
+    font-size: 1rem;
+    line-height: 1.9rem;
+    color: #8b9196;
+}
+.oauth-box .oauth-btn{
+    margin-left: 1.2rem;
+    height: 1.9rem;
+    vertical-align: bottom;
+    cursor: pointer;
+    border-style: none;
+}
+.textcenter{
+    text-align: center;
+}

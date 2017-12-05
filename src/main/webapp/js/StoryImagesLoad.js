@@ -1,9 +1,7 @@
 $(function(){
-    $("img").each(function (i) {
-        if(0!=i){
-            var temp=this.src;
-            this.src="/blog/api/imgUrl?imgurl="+temp;
-        }
+    $(".view img").each(function (i) {
+        var temp=this.src;
+        this.src="/blog/api/imgUrl?imgurl="+temp;
     });
 
    var questionTitle=$(".question-title").text();

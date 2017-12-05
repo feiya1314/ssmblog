@@ -41,8 +41,8 @@
                             </li>
                             <c:if test="${empty sessionScope.username}">
                                 <li class="nav-item loginRegister">
-                                    <span class="login">登录</span>
-                                    <span class="register">注册</span>
+                                    <span v-on:click="displayLogin(true,'login')" class="login">登录</span>
+                                    <span v-on:click="displayLogin(true,'register')" class="register">注册</span>
                                 </li>
                             </c:if>
                             <c:if test="${not empty sessionScope.username}">

@@ -13,6 +13,7 @@
 <body>
 
 <div class="viewcontainer">
+    <jsp:include page="pages/globalComponent.jsp"></jsp:include>
     <jsp:include page="pages/header.jsp"></jsp:include>
     <main class="container main-container">
         <div class="view">
@@ -228,6 +229,7 @@
         </div>
     </main>
 </div>
-<script type="text/javascript" src="/blog/js/index.js"></script>
 </body>
+<script type="text/javascript" src="/blog/js/index.js"></script>
+<script type="text/javascript" src="/blog/js/globalCompont.js"></script>
 </html>
