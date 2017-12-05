@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="viewcontainer">
+    <jsp:include page="/pages/globalComponent.jsp"></jsp:include>
     <jsp:include page="/pages/header.jsp"></jsp:include>
     <main class="container main-container">
         <div class="view">
@@ -166,4 +167,5 @@
     </main>
 </div>
 </body>
+<script type="text/javascript" src="/blog/js/globalCompont.js"></script>
 </html>
