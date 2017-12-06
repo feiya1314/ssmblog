@@ -114,7 +114,9 @@
     margin: 0 .4rem;
 }
 .headImgContainer{
-    padding-left: 3.5rem;
+    padding-left: 5.6rem;
+    position: relative;
+    padding-right: 0;
 }
 .lazy{
     width: 2.5rem;
@@ -135,7 +137,6 @@
     border-radius: 50%;
 }
 li {
-    float: left;
     list-style: none;
     text-align: -webkit-match-parent;
 }
@@ -149,8 +150,8 @@ li {
 }
 .nav-menu{
     position: absolute;
-    width: 11rem;
-    left: 50%;
+    /*width: 11rem;*/
+    /*left: 50%;*/
     top: 100%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -203,6 +204,9 @@ li {
 }
 .fw-write:before{
     content: "\e60d";
+}
+.fw-draft:before {
+    content: "\e60e";
 }
 /*dropMenuList end*/
 [v-cloak]{

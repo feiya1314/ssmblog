@@ -39,7 +39,7 @@
         <security:form-login login-page="/pages/customerLogin.jsp" authentication-failure-url="/pages/customerLogin.jsp"
                              username-parameter="username" password-parameter="password"
                              login-processing-url="/user/userLogin"
-                             default-target-url="/index.jsp"/>
+                             />
         <security:logout logout-url="/user/logout" logout-success-url="/pages/customerLogin.jsp"/>
         <security:intercept-url pattern="/user/**" access="hasRole('USER_ROLE')"></security:intercept-url>
     </security:http>

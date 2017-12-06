@@ -63,11 +63,11 @@
                                             <li class="nav-menu-item">
                                                 <a href="/user/5788c2d1165abd00670b4c33"><i class="fengwei fw-person"></i><span>我的主页</span></a>
                                             </li>
-                                            <li class="nav-menu-item">
+                                            <%--<li class="nav-menu-item">
                                                 <a href="/user/5788c2d1165abd00670b4c33/like"><i class="fengwei fw-like"></i><span>我喜欢的</span></a>
-                                            </li>
+                                            </li>--%>
                                             <li class="nav-menu-item">
-                                                <a href="/user/5788c2d1165abd00670b4c33/collection"><i class="fengwei fw-collection"></i><span>我的收藏集</span></a>
+                                                <a href="/user/5788c2d1165abd00670b4c33/collection"><i class="fengwei fw-collection"></i><span>我的收藏</span></a>
                                             </li>
                                         </div>
                                         <div class="nav-menu-item-group">
@@ -75,7 +75,7 @@
                                                 <i class="fengwei fw-setting"></i><span>设置</span></a>
                                             </li>
                                             <li class="nav-menu-item more">
-                                                <a><i class="fengwei fw-info"></i><span>关于</span><i class="ion-chevron-right more-icon"></i></a>
+                                                <a><i class="fengwei fw-info"></i><span>关于</span></a>
                                             </li>
                                         </div>
                                         <div class="nav-menu-item-group">
