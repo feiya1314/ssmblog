@@ -10,6 +10,17 @@
 		<result column="tel" property="tel" jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
 	</resultMap>
+	<resultMap id="SimpleResultMap" type="blog.dao.SimpleUser">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_name" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="isfreezen" property="isFreezen" jdbcType="BOOLEAN" />
+		<result column="role" property="role" jdbcType="INTEGER" />
+		<result column="headurl" property="headUrl" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="getBySimpleUserName" resultMap="SimpleResultMap">
+		select id,user_name,password,isfreezen,role,headurl from tb_user where user_name = #{username}
+	</select>
 	<sql id="Base_Column_List">
 		id, name, password, level, des, tel, address
 	</sql>

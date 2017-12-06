@@ -1,12 +1,11 @@
 package blog.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
-import core.mapper.IBaseMapper;
+import blog.dao.SimpleUser;
 import blog.dao.User;
 import blog.dto.output.UserDetails;
+import core.mapper.IBaseMapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 public interface UserMapper extends IBaseMapper<User> {
 	//通过会员id获取其详情
@@ -19,4 +18,5 @@ public interface UserMapper extends IBaseMapper<User> {
    public Integer getUserNameCount(String username);
    //根据用户名查询
    public User getByUserName(String username);
+   public SimpleUser getBySimpleUserName(String username);
 }
