@@ -47,7 +47,43 @@
                             </c:if>
                             <c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}">
                                 <li class="nav-item headImgContainer">
-                                    <img src="/blog/images/3.jpg" class="headImg">
+                                    <div v-on:click="displayDropMenu"class="avatar lazy">
+                                        <img src="/blog/images/3.jpg" class="headImg">
+                                    </div>
+                                    <ul class="nav-menu user-dropdown-list" v-bind:style="{display:displayMenu}">
+                                        <div class="nav-menu-item-group">
+                                            <li class="nav-menu-item">
+                                                <a><i class="fengwei fw-write"></i><span>写文章</span></a>
+                                            </li>
+                                            <li class="nav-menu-item">
+                                                <a><i class="fengwei fw-draft"></i><span>草稿</span></a>
+                                            </li>
+                                        </div>
+                                        <div class="nav-menu-item-group">
+                                            <li class="nav-menu-item">
+                                                <a href="/user/5788c2d1165abd00670b4c33"><i class="fengwei fw-person"></i><span>我的主页</span></a>
+                                            </li>
+                                            <li class="nav-menu-item">
+                                                <a href="/user/5788c2d1165abd00670b4c33/like"><i class="fengwei fw-like"></i><span>我喜欢的</span></a>
+                                            </li>
+                                            <li class="nav-menu-item">
+                                                <a href="/user/5788c2d1165abd00670b4c33/collection"><i class="fengwei fw-collection"></i><span>我的收藏集</span></a>
+                                            </li>
+                                        </div>
+                                        <div class="nav-menu-item-group">
+                                            <li class="nav-menu-item"><a href="/user/settings">
+                                                <i class="fengwei fw-setting"></i><span>设置</span></a>
+                                            </li>
+                                            <li class="nav-menu-item more">
+                                                <a><i class="fengwei fw-info"></i><span>关于</span><i class="ion-chevron-right more-icon"></i></a>
+                                            </li>
+                                        </div>
+                                        <div class="nav-menu-item-group">
+                                            <li class="nav-menu-item">
+                                                <a href="/blog/user/logout"><i class="fengwei fw-logout"></i><span>登出</span></a>
+                                            </li>
+                                        </div>
+                                    </ul>
                                 </li>
                             </c:if>
                         </ul>

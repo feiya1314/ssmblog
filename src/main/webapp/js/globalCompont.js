@@ -73,3 +73,19 @@ new Vue({
     }
 
 });
+new Vue({
+    el:'.headImgContainer',
+    data:{
+        displayMenu:'none',
+    },
+    methods:{
+        displayDropMenu:function () {
+            if(this.displayMenu=='none'){
+                this.displayMenu='';
+            }else {
+                this.displayMenu='none'
+            }
+        }
+    }
+
+});

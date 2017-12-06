@@ -13,5 +13,6 @@
 <link rel="stylesheet" type="text/css" href="/blog/css/header.css"/>
 <link rel="stylesheet" type="text/css" href="/blog/css/common.css"/>
 <link rel="stylesheet" type="text/css" href="/blog/css/globalCompont.css"/>
+<%--<link rel="stylesheet" type="text/css" href="/blog/css/ionicons.min.css"/>--%>
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 

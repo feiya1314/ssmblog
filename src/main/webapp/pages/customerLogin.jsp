@@ -12,7 +12,7 @@
     <title>login</title>
 </head>
 <body>
-<form action="/j_spring_security_check" method="post">
+<form action="/blog/user/userLogin" method="post">
     <table>
         <tr>
             <th>zidingyi</th>
@@ -20,12 +20,12 @@
         </tr>
         <tr>
             <td>
-                username:<input type="text">
+                username:<input type="text" name="username">
             </td>
         </tr>
         <tr>
             <td>
-                password:<input type="password">
+                password:<input type="password" name="password">
             </td>
         </tr>
         <tr>

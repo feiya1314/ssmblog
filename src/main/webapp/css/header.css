@@ -115,12 +115,23 @@
 }
 .headImgContainer{
     padding-left: 3.5rem;
+}
+.lazy{
+    width: 2.5rem;
+    height: 2.5rem;
+/*    border-radius: 50%;*/
+    position: relative;
     overflow: hidden;
+    display: inline-block;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-color: #eee;*/
 }
 .headImg{
     margin: 0 auto;
-    width: 32px;
-    height: 32px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
 li {
@@ -128,6 +139,72 @@ li {
     list-style: none;
     text-align: -webkit-match-parent;
 }
+/*dropMenuList Start*/
+.nav-menu.user-dropdown-list{
+    width: 13rem;
+    right: 0;
+    left: auto;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+.nav-menu{
+    position: absolute;
+    width: 11rem;
+    left: 50%;
+    top: 100%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border: 1px solid hsla(217,5%,71%,.45);
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+.nav-menu.user-dropdown-list .nav-menu-item-group:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.04);
+}
+.nav-menu .nav-menu-item-group{
+    padding: 1rem 0;
+}
+.nav-menu .nav-menu-item{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.nav-menu .nav-menu-item>a{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .5rem 1rem;
+}
+.nav-menu-item>a{
+    color: #71777c;
+}
+.fengwei{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: .8rem;
+    font-size: 1.2em;
+    vertical-align: middle;
+    color: #b2bac2;
+}
+.fengwei {
+    font-family: "fengwei" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fw-write:before{
+    content: "\e60d";
+}
+/*dropMenuList end*/
 [v-cloak]{
     display: none;
 }

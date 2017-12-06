@@ -13,8 +13,9 @@
 <body>
 
 <div class="viewcontainer">
-    <jsp:include page="pages/globalComponent.jsp"></jsp:include>
     <jsp:include page="pages/header.jsp"></jsp:include>
+    <jsp:include page="pages/globalComponent.jsp"></jsp:include>
+
     <main class="container main-container">
         <div class="view">
             <div class="topnews">
