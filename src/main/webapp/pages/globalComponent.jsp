@@ -9,7 +9,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="global-component-box" v-cloak>
     <div v-if="isDisplay" class="auth-modal-box">
-    <form  class="auth-form">
+    <form id="authForm" class="auth-form">
+        <input type="hidden" name="currentUrl">
         <div class="panfish">
             <img src="/blog/images/normal.0447fe9.png" class="normal" v-bind:style="{display:normalImg}">
             <img src="/blog/images/greeting.1415c1c.png" class="greeting" v-bind:style="{display:greetingImg}">
@@ -20,23 +21,23 @@
             <h1 class="loginTitle">{{login_register}}</h1>
             <div class="input-group">
                 <div v-if="isLogin" class="input-box">
-                    <input name="loginPhoneOrEmail" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
+                    <input name="username" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
                 </div>
                 <div v-if="isLogin" class="input-box">
-                    <input name="loginPassword" type="password" maxlength="64" placeholder="请输入密码" class="input">
+                    <input name="password" type="password" maxlength="64" placeholder="请输入密码" class="input">
                 </div>
                 <%--注册input--%>
                 <div v-if="isRegister" class="input-box">
-                    <input name="registerUsername" maxlength="20" placeholder="请输入用户名" class="input">
+                    <input name="username" maxlength="20" placeholder="请输入用户名" class="input">
                 </div>
                 <div v-if="isRegister" class="input-box">
                     <input  name="registerPhoneOrEmail" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
                 </div>
                 <div v-if="isRegister" class="input-box">
-                    <input  name="registerPassword" type="password" maxlength="64" placeholder="请输入密码" class="input">
+                    <input  name="password" type="password" maxlength="64" placeholder="请输入密码" class="input">
                 </div>
             </div>
-            <button class="loginBtn">{{login_register}}</button>
+            <button v-on:click="submitForm" type="submit" class="loginBtn">{{login_register}}</button>
             <div v-if="isLogin" class="prompt-box">
                 没有账号？
                 <span v-on:click="displayLogin(true,'register')" class="clickable">注册</span>

@@ -16,6 +16,7 @@
     <table>
         <tr>
             <th>zidingyi</th>
+            ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
         </tr>
         <tr>
             <td>

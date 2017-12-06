@@ -29,6 +29,38 @@ var loginDisplayController=new Vue({
                 this.isRegister=true;
                 this.isLogin=false;
             }
+        },
+        submitForm:function () {
+            if(this.isRegister){
+                /*var currUrl=window.location.pathname;
+                var submitForm=document.getElementById("authForm");
+                submitForm.method='post';
+                submitForm.action='/blog/register';
+                submitForm.currentUrl.value=currUrl;
+                console.debug(submitForm.method);
+                console.debug(submitForm.action);
+                console.debug(submitForm.username.value);
+                console.debug(submitForm.password.value);
+                submitForm.submit();
+                console.debug("register submit ");*/
+                this.processSubmit('/blog/register');
+            }else{
+                this.processSubmit('/blog/user/userLogin');
+            }
+
+        },
+        processSubmit:function(actionUrl){
+            var currUrl=window.location.pathname;
+            var submitForm=document.getElementById("authForm");
+            submitForm.method='post';
+            submitForm.action=actionUrl;
+            submitForm.currentUrl.value=currUrl;
+            console.debug(submitForm.method);
+            console.debug(submitForm.action);
+            console.debug(submitForm.username.value);
+            console.debug(submitForm.password.value);
+            submitForm.submit();
+            console.debug("register submit ");
         }
     }
 });

@@ -25,6 +25,7 @@
     uaername:${admin.username}<br>
 id:${admin.id}<br>
 role:${admin.role}
+    session:${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.password}
 <button type="button" class="updateStory" >更新</button><br>
 <a href="/blog/adminTopThanSky/logout">登出</a>
 </body>

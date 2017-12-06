@@ -39,20 +39,28 @@
         <security:form-login login-page="/pages/customerLogin.jsp" authentication-failure-url="/pages/customerLogin.jsp"
                              username-parameter="username" password-parameter="password"
                              login-processing-url="/user/userLogin"
-                             default-target-url="/user/"/>
+                             default-target-url="/index.jsp"/>
         <security:logout logout-url="/user/logout" logout-success-url="/pages/customerLogin.jsp"/>
-        <security:intercept-url pattern="/user/**" access="hasRole('USER_ADMIN')"></security:intercept-url>
+        <security:intercept-url pattern="/user/**" access="hasRole('USER_ROLE')"></security:intercept-url>
     </security:http>
 
     <security:authentication-manager id="adminAutnenticationManager">
         <security:authentication-provider user-service-ref="adminDetailService">
+
            <!-- <security:password-encoder hash="md5"/>-->
         </security:authentication-provider>
     </security:authentication-manager>
     <security:authentication-manager id="userAutnenticationManager">
-        <security:authentication-provider user-service-ref="userDetailService">
-            <!-- <security:password-encoder hash="md5"/>-->
+        <security:authentication-provider ref="authenticationProvider">
+
         </security:authentication-provider>
+       <!-- <security:authentication-provider user-service-ref="userDetailService">
+            &lt;!&ndash; <security:password-encoder hash="md5"/>&ndash;&gt;
+        </security:authentication-provider>-->
     </security:authentication-manager>
+    <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="hideUserNotFoundExceptions" value="false" />
+        <property name="userDetailsService" ref="userDetailService" />
+    </bean>
 
 </beans>
