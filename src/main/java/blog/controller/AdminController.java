@@ -22,6 +22,7 @@ public class AdminController {
         ModelAndView modelAndView=new ModelAndView();
         AdminSimpleInfo adminSimpleInfo=new AdminSimpleInfo();
         SecurityContext securityContext= SecurityContextHolder.getContext();
+        /*securityContext.getAuthentication().*/
         Object admin=securityContext.getAuthentication().getPrincipal();
         if(admin instanceof Admin){
             adminSimpleInfo.setFreezen(((Admin) admin).isFreezen());
