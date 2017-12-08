@@ -29,12 +29,12 @@
         <security:form-login login-page="/pages/adminLoginLogin.jsp" authentication-failure-url="/pages/adminLoginLogin.jsp"
                              username-parameter="username" password-parameter="password"
                              login-processing-url="/adminTopThanSky/adminLogin"
-                             default-target-url="/adminTopThanSky/adminfeiya"/>
+                             authentication-success-handler-ref="adminLoginSuccessHandler"/>
         <security:logout logout-url="/adminTopThanSky/logout" logout-success-url="/pages/adminLoginLogin.jsp"/>
         <security:intercept-url pattern="/adminTopThanSky/**" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
     </security:http>
 
-    <security:http auto-config="true" pattern="/user/**" use-expressions="true"
+    <security:http auto-config="false" entry-point-ref="unauthorizedEntryPoint" use-expressions="true"
                    authentication-manager-ref="userAutnenticationManager">
         <security:form-login login-page="/pages/customerLogin.jsp" authentication-failure-url="/pages/customerLogin.jsp"
                              username-parameter="username" password-parameter="password"
@@ -58,9 +58,21 @@
             &lt;!&ndash; <security:password-encoder hash="md5"/>&ndash;&gt;
         </security:authentication-provider>-->
     </security:authentication-manager>
+    <!--admin Login 登录成功后的处理-->
+    <bean id="adminLoginSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+        <!--成功后默认访问的页面-->
+        <property name="defaultTargetUrl" value="/adminTopThanSky/adminfeiya"></property>
+    </bean>
+
+    <!--admin 授权验证相关-->
     <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <property name="hideUserNotFoundExceptions" value="false" />
+        <!--从数据库取数据进行账号密码验证-->
         <property name="userDetailsService" ref="userDetailService" />
+    </bean>
+
+    <bean id="unauthorizedEntryPoint" class="blog.security.UnauthorizedEntryPoint">
+        <property name="loginFormUrl" value="/pages/customerLogin.jsp"></property>
     </bean>
 
 </beans>
