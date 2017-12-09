@@ -37,7 +37,7 @@
                     <input  name="password" type="password" maxlength="64" placeholder="请输入密码" class="input">
                 </div>
             </div>
-            <button v-on:click="submitForm" type="submit" class="loginBtn">{{login_register}}</button>
+            <button v-on:click="submitForm" type="button" class="loginBtn">{{login_register}}</button>
             <div v-if="isLogin" class="prompt-box">
                 没有账号？
                 <span v-on:click="displayLogin(true,'register')" class="clickable">注册</span>

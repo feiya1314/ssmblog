@@ -26,7 +26,8 @@
     <!--设置匹配admin url，登录页面和所拥有的权限，以及引用adminAutnenticationManager验证管理 -->
     <security:http auto-config="true" pattern="/adminTopThanSky/**" use-expressions="true"
                    authentication-manager-ref="adminAutnenticationManager">
-        <security:form-login login-page="/pages/adminLoginLogin.jsp" authentication-failure-url="/pages/adminLoginLogin.jsp"
+        <security:form-login login-page="/pages/adminLoginLogin.jsp"
+                             authentication-failure-url="/pages/adminLoginLogin.jsp"
                              username-parameter="username" password-parameter="password"
                              login-processing-url="/adminTopThanSky/adminLogin"
                              authentication-success-handler-ref="adminLoginSuccessHandler"/>
@@ -34,45 +35,61 @@
         <security:intercept-url pattern="/adminTopThanSky/**" access="hasRole('ROLE_ADMIN')"></security:intercept-url>
     </security:http>
 
-    <security:http auto-config="false" entry-point-ref="unauthorizedEntryPoint" use-expressions="true"
-                   authentication-manager-ref="userAutnenticationManager">
-        <security:form-login login-page="/pages/customerLogin.jsp" authentication-failure-url="/pages/customerLogin.jsp"
+    <security:http auto-config="false" entry-point-ref="unauthorizedEntryPoint" use-expressions="true" authentication-manager-ref="userAuthenticationManager">
+        <!--<security:form-login login-page="/pages/customerLogin.jsp" authentication-failure-url="/pages/customerLogin.jsp"
                              username-parameter="username" password-parameter="password"
                              login-processing-url="/user/userLogin"
                              />
+                             -->
         <security:logout logout-url="/user/logout" logout-success-url="/pages/customerLogin.jsp"/>
+        <security:custom-filter ref="ajaxUsernamePasswordAuthFilter" position="FORM_LOGIN_FILTER"></security:custom-filter>
         <security:intercept-url pattern="/user/**" access="hasRole('USER_ROLE')"></security:intercept-url>
     </security:http>
 
     <security:authentication-manager id="adminAutnenticationManager">
         <security:authentication-provider user-service-ref="adminDetailService">
 
-           <!-- <security:password-encoder hash="md5"/>-->
+            <!-- <security:password-encoder hash="md5"/>-->
         </security:authentication-provider>
     </security:authentication-manager>
-    <security:authentication-manager id="userAutnenticationManager">
+    <security:authentication-manager id="userAuthenticationManager">
         <security:authentication-provider ref="authenticationProvider">
 
         </security:authentication-provider>
-       <!-- <security:authentication-provider user-service-ref="userDetailService">
-            &lt;!&ndash; <security:password-encoder hash="md5"/>&ndash;&gt;
-        </security:authentication-provider>-->
+        <!-- <security:authentication-provider user-service-ref="userDetailService">
+             &lt;!&ndash; <security:password-encoder hash="md5"/>&ndash;&gt;
+         </security:authentication-provider>-->
     </security:authentication-manager>
     <!--admin Login 登录成功后的处理-->
-    <bean id="adminLoginSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+    <bean id="adminLoginSuccessHandler"
+          class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
         <!--成功后默认访问的页面-->
         <property name="defaultTargetUrl" value="/adminTopThanSky/adminfeiya"></property>
     </bean>
 
     <!--admin 授权验证相关-->
     <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-        <property name="hideUserNotFoundExceptions" value="false" />
+        <property name="hideUserNotFoundExceptions" value="false"/>
         <!--从数据库取数据进行账号密码验证-->
-        <property name="userDetailsService" ref="userDetailService" />
+        <property name="userDetailsService" ref="userDetailService"/>
     </bean>
 
     <bean id="unauthorizedEntryPoint" class="blog.security.UnauthorizedEntryPoint">
         <property name="loginFormUrl" value="/pages/customerLogin.jsp"></property>
     </bean>
-
+    <!--自定义表单认证过滤器,用于替换security:form-login-->
+    <bean id="ajaxUsernamePasswordAuthFilter" class="blog.filters.AjaxUsernamePasswordAuthFilter">
+        <property name="authenticationManager" ref="userAuthenticationManager"></property>
+        <property name="usernameParameter" value="username"></property>
+        <property name="passwordParameter" value="password"></property>
+        <property name="authenticationSuccessHandler" ref="ajaxAuthenticationSuccessHandler"></property>
+        <property name="authenticationFailureHandler" ref="ajaxAuthenticationFailureHandler"></property>
+        <property name="filterProcessesUrl" value="/user/userLogin"></property>
+    </bean>
+    <bean id="ajaxAuthenticationSuccessHandler" class="blog.security.handler.AjaxAuthenticationSuccessHandler">
+        <property name="defaultTargetUrl" value="/index.jsp"></property>
+    </bean>
+    <bean id="ajaxAuthenticationFailureHandler" class="blog.security.handler.AjaxAuthenticationFailureHandler">
+        <property name="defaultFailureUrl" value="/pages/customerLogin.jsp"></property>
+    </bean>
 </beans>

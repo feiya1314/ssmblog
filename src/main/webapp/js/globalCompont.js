@@ -45,7 +45,46 @@ var loginDisplayController=new Vue({
                 console.debug("register submit ");*/
                 this.processSubmit('/blog/register');
             }else{
-                this.processSubmit('/blog/user/userLogin');
+                alert("statrt test");
+                var formData=$("#authForm").serializeArray();
+                var jsonForm={};
+                $(formData).each(function () {
+                    jsonForm[this.name]=this.value.trim();
+                });
+                var json=JSON.stringify(jsonForm);
+                alert(formData);
+                $.ajax(
+                    {
+                        url:"/blog/user/userLogin",
+                        type:"POST",
+                        dataType:"json",
+                        data:json,
+                        success:function (data, textStatus, jqXHR) {
+                            alert(data);
+                            alert(textStatus);
+                            alert(jqXHR);
+                        },
+                        error:function (XMLHttpRequest, textStatus, errorThrown) {
+                            if(XMLHttpRequest.status=="401"&&textStatus=='error'){
+                                var jsonResult=XMLHttpRequest.responseJSON;
+                                var errcode=jsonResult.errorCode;
+                                if(errcode==102){
+                                    alert("密码错误");
+                                    return;
+                                }
+                                if(errcode==101){
+                                    alert("用户名错误");
+                                    return;
+                                }
+                            }
+
+                            //alert(textStatus);
+                            //alert(errorThrown);
+
+                        }
+                    }
+                );
+               // this.processSubmit('/blog/user/userLogin');
             }
 
         },

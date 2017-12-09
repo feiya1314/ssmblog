@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <jsp:include page="common.jsp"></jsp:include>
+   <script type="text/javascript" src="js/jQuery-jcImgScroll.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -11,5 +13,38 @@
    <a>list:</a><br>
    <a>${TopNewsList.get(0).title}</a><br>
    <a>${TopNewsList.get(0).image}</a>
+<button type="button" id="jsonTest">
+   getUser;
+</button>
 </body>
+
+<script type="application/javascript">
+    $(function () {
+        $("#jsonTest").click( function test() {
+            alert("statrt test");
+            $.ajax(
+                {
+                    url:"/blog/user/user",
+                    type:"POST",
+                    dataType:"json",
+                    data:"id=1",
+                    success:function (data, textStatus, jqXHR) {
+                        alert(data);
+                        alert(textStatus);
+                        alert(jqXHR);
+                    },
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        if(XMLHttpRequest.status=="403"){
+                            alert("not login ,to do Login");
+                        }
+
+                        //alert(textStatus);
+                        //alert(errorThrown);
+
+                    }
+                }
+            );
+        });
+    });
+</script>
 </html>
