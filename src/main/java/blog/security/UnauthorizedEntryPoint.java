@@ -22,7 +22,7 @@ public class UnauthorizedEntryPoint extends LoginUrlAuthenticationEntryPoint
         }
         if(isAjaxRequest(request)){
             //response.sendError(HttpServletResponse.SC_UNAUTHORIZED,authException.getMessage());
-            response.setStatus(403);
+            response.setStatus(401);
         }else{
             super.commence( request, response, authException);
         }
