@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
     @Autowired
-    @Qualifier("userAutnenticationManager")
+    @Qualifier("userAuthenticationManager")
     protected AuthenticationManager authenticationManager;
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ModelAndView login(RegisterUser user ){

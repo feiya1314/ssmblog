@@ -48,14 +48,15 @@ public class UserController extends BaseController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ModelAndView getTeemo(Integer id) {
+	@ResponseBody
+	public AjaxResult getTeemo(Integer id) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("userName", userService.selectByPrimaryKey(id)
 				.getName());
 		modelAndView.addObject("userDesc", userService.selectByPrimaryKey(id)
 				.getDes());
 		modelAndView.setViewName("user");
-		return modelAndView;
+		return AjaxResult.getOK();
 	}
 
 	@RequestMapping(value = "/saveuser",method = RequestMethod.POST)
