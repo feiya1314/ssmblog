@@ -18,7 +18,7 @@ public class AjaxAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
             response.setHeader("Content-Type", "application/json;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
             response.setStatus(200);
-            response.getWriter().print("{\"success\":true,\"msg\":\"request success\"}");
+            response.getWriter().print("{\"success\":true,\"errorCode\":0,\"msg\":\"request success\"}");
         }else{
             super.onAuthenticationSuccess(request, response, authentication);
         }
