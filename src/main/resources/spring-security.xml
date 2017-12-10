@@ -41,7 +41,7 @@
                              login-processing-url="/user/userLogin"
                              />
                              -->
-        <security:logout logout-url="/user/logout" logout-success-url="/pages/customerLogin.jsp"/>
+        <security:logout logout-url="/user/logout" logout-success-url="/index.jsp"/>
         <security:custom-filter ref="ajaxUsernamePasswordAuthFilter" position="FORM_LOGIN_FILTER"></security:custom-filter>
         <security:intercept-url pattern="/user/**" access="hasRole('USER_ROLE')"></security:intercept-url>
     </security:http>

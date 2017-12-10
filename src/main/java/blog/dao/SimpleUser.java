@@ -1,5 +1,6 @@
 package blog.dao;
 
+import core.utils.StringUtil;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +10,9 @@ import java.util.Collection;
 import java.util.List;
 
 public class SimpleUser implements UserDetails {
-    private String username;
-    private String password;
+    private String username="";
+    private String password="";
+    private String registerPhoneOrEmail="";
     private int id;
     private int role;
     private boolean isFreezen;
@@ -23,6 +25,14 @@ public class SimpleUser implements UserDetails {
             authorities.add(new SimpleGrantedAuthority("USER_ROLE"));
         }
         return authorities;
+    }
+
+    public String getRegisterPhoneOrEmail() {
+        return registerPhoneOrEmail;
+    }
+
+    public void setRegisterPhoneOrEmail(String registerPhoneOrEmail) {
+        this.registerPhoneOrEmail = registerPhoneOrEmail;
     }
 
     public String getCurrentUrl() {

@@ -5,7 +5,7 @@ public class UserSimpleInfo {
     private int id;
     private int role;
     private boolean isFreezen;
-    private String headUrl="";
+    private String headUrl="/blog/images/1.jpg";
 
     public String getUsername() {
         return username;

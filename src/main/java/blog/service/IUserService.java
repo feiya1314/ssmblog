@@ -2,6 +2,7 @@ package blog.service;
 
 import java.util.List;
 
+import blog.dao.UserDetailInfo;
 import org.apache.ibatis.session.RowBounds;
 
 import core.common.PageInfo;
@@ -87,4 +88,8 @@ public interface IUserService extends IBaseService<User> {
 	 * @param roleName 角色信息
 	 */
 	public void addRole(String roleName);
+
+	int countId(int id);
+	int countUsername(String username);
+	int registerUser(UserDetailInfo userDetailInfo);
 }

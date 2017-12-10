@@ -31,6 +31,17 @@
 		from b_user
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+
+	<select id="countId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		SELECT  COUNT(*) FROM tb_user WHERE id=#{id ,javaType=INTEGER }
+	</select>
+	<select id="countUsername" resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT  COUNT(*) FROM tb_user WHERE user_name=#{username}
+	</select>
+	<insert id="registerUser" parameterType="blog.dao.UserDetailInfo">
+		INSERT INTO tb_user (id,user_name,password,email,phone,headurl,isfreezen,level,role)
+		VALUES (#{id,jdbcType=INTEGER},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{headUrl,jdbcType=VARCHAR},#{isFreezen,jdbcType=BOOLEAN},#{level,jdbcType=INTEGER},#{role,jdbcType=INTEGER})
+	</insert>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from b_user
 		where id = #{id,jdbcType=INTEGER}

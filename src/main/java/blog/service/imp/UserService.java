@@ -3,6 +3,7 @@ package blog.service.imp;
 import java.util.ArrayList;
 import java.util.List;
 
+import blog.dao.UserDetailInfo;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -213,4 +214,18 @@ public class UserService extends BaseService<User> implements IUserService {
 		return userRoleMapper.getRoleIdListByUserId(userId);
 	}
 
+	@Override
+	public int countId(int id) {
+		return userMapper.countId(id);
+	}
+
+	@Override
+	public int countUsername(String username) {
+		return userMapper.countUsername(username);
+	}
+
+	@Override
+	public int registerUser(UserDetailInfo userDetailInfo) {
+		return userMapper.registerUser(userDetailInfo);
+	}
 }
