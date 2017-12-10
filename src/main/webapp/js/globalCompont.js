@@ -7,6 +7,10 @@ var loginDisplayController=new Vue({
         normalImg:'none',
         greetingImg:'none',
         blindfoldImg:'none',
+        usernameMsg:"ss",
+        usernameMsgDisplay:false,
+        passwordMsgDisplay:false,
+        passwordMsg:"ss",
         isRegister:false,
         displayElem:{
             display:'none'
@@ -30,6 +34,14 @@ var loginDisplayController=new Vue({
                 this.isLogin=false;
             }
         },
+        changeUsernameErrorMessage:function (isDisplay,msg) {
+            this.usernameMsgDisplay=isDisplay;
+            this.usernameMsg=msg;
+        },
+        changePasswordErrorMessage:function (isDisplay,msg) {
+            this.passwordMsgDisplay=isDisplay;
+            this.passwordMsg=msg;
+        },
         submitForm:function () {
             if(this.isRegister){
                 /*var currUrl=window.location.pathname;
@@ -45,46 +57,7 @@ var loginDisplayController=new Vue({
                 console.debug("register submit ");*/
                 this.processSubmit('/blog/register');
             }else{
-                alert("statrt test");
-                var formData=$("#authForm").serializeArray();
-                var jsonForm={};
-                $(formData).each(function () {
-                    jsonForm[this.name]=this.value.trim();
-                });
-                var json=JSON.stringify(jsonForm);
-                alert(formData);
-                $.ajax(
-                    {
-                        url:"/blog/user/userLogin",
-                        type:"POST",
-                        dataType:"json",
-                        data:json,
-                        success:function (data, textStatus, jqXHR) {
-                            alert(data);
-                            alert(textStatus);
-                            alert(jqXHR);
-                        },
-                        error:function (XMLHttpRequest, textStatus, errorThrown) {
-                            if(XMLHttpRequest.status=="401"&&textStatus=='error'){
-                                var jsonResult=XMLHttpRequest.responseJSON;
-                                var errcode=jsonResult.errorCode;
-                                if(errcode==102){
-                                    alert("密码错误");
-                                    return;
-                                }
-                                if(errcode==101){
-                                    alert("用户名错误");
-                                    return;
-                                }
-                            }
-
-                            //alert(textStatus);
-                            //alert(errorThrown);
-
-                        }
-                    }
-                );
-               // this.processSubmit('/blog/user/userLogin');
+                processAjaxSubmit();
             }
 
         },
@@ -128,3 +101,41 @@ new Vue({
     }
 
 });
+
+function processAjaxSubmit() {
+    var formData = $("#authForm").serializeArray();
+    var jsonForm = {};
+    $(formData).each(function () {
+        jsonForm[this.name] = this.value.trim();
+    });
+    var json = JSON.stringify(jsonForm);
+    $.ajax(
+        {
+            url: "/blog/user/userLogin",
+            type: "POST",
+            dataType: "json",
+            data: json,
+            success: function (data, textStatus, jqXHR) {
+                loginDisplayController.changePasswordErrorMessage(false,"");
+                loginDisplayController.changeUsernameErrorMessage(false,"");
+                window.location.reload(false);
+                return ;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == "401" && textStatus == 'error') {
+                    var jsonResult = XMLHttpRequest.responseJSON;
+                    var errcode = jsonResult.errorCode;
+                    if(errcode==101){
+                        loginDisplayController.changeUsernameErrorMessage(true,"用户名未被注册")
+                        return;
+                    }
+                    if(errcode==102){
+                        loginDisplayController.changePasswordErrorMessage(true,"账号或密码错误");
+                        return;
+                    }
+                    return;
+                }
+            }
+        }
+    );
+}

@@ -21,20 +21,24 @@
             <h1 class="loginTitle">{{login_register}}</h1>
             <div class="input-group">
                 <div v-if="isLogin" class="input-box">
-                    <input name="username" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
+                    <input name="username" maxlength="64" placeholder="请输入账号" class="input">
+                    <label v-if="usernameMsgDisplay" class="errorInfo">{{usernameMsg}}</label>
                 </div>
                 <div v-if="isLogin" class="input-box">
                     <input name="password" type="password" maxlength="64" placeholder="请输入密码" class="input">
+                    <label v-if="passwordMsgDisplay" class="errorInfo">{{passwordMsg}}</label>
                 </div>
                 <%--注册input--%>
                 <div v-if="isRegister" class="input-box">
                     <input name="username" maxlength="20" placeholder="请输入用户名" class="input">
+                    <label v-if="usernameMsgDisplay" class="errorInfo">{{usernameMsg}}</label>
                 </div>
                 <div v-if="isRegister" class="input-box">
-                    <input  name="registerPhoneOrEmail" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
+                    <input name="registerPhoneOrEmail" maxlength="64" placeholder="请填写手机号或邮箱" class="input">
                 </div>
                 <div v-if="isRegister" class="input-box">
                     <input  name="password" type="password" maxlength="64" placeholder="请输入密码" class="input">
+                    <label v-if="passwordMsgDisplay" class="errorInfo">{{passwordMsg}}</label>
                 </div>
             </div>
             <button v-on:click="submitForm" type="button" class="loginBtn">{{login_register}}</button>
