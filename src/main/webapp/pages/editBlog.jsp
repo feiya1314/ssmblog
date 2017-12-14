@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/blog/css/markdownEditor.css"/>
-    <link rel="stylesheet" type="text/css" href="/blog/css/markdown4.css"/>
+    <link rel="stylesheet" type="text/css" href="/blog/css/markdown7.css"/>
     <script src="/blog/js/showdown.min.js"></script>
 </head>
 <body>
