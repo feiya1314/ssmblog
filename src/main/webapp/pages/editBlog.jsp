@@ -17,6 +17,22 @@
 <div class="markdownEditor">
     <header class="editorHeader">
         <input placeholder="输入文章标题..." spellcheck="false" maxlength="80" class="title-input title-input">
+        <div class="rightBox">
+            <div class="saveBlog">
+                <div class="saveBtn">
+                    <span>保存</span>
+                </div>
+            </div>
+            <div class="uploadImg" title="上传图片">
+                <div class="panel">
+                </div>
+            </div>
+            <div class="userImg">
+                <div class="userHeadImgBox">
+                    <img class="userHeadImg" src="/blog/images/1.jpg">
+                </div>
+            </div>
+        </div>
     </header>
     <main class="mainContent">
         <div class="editBoxContainer">
