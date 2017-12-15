@@ -15,6 +15,37 @@
     border-bottom: 1px solid #ddd;
     z-index: 100;
 }
+.rightBox{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.uploadImg{
+    padding-left: 1.5rem;
+}
+.panel{
+    background-image: url("../images/uploadImg.svg");
+    width: 2.4rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+}
+.saveBlog{
+    margin: auto;
+}
+.saveBtn{
+    color: #007fff;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+.userImg{
+    padding-left: 2rem;
+}
+.userHeadImgBox{
+    width: 1.9rem;
+    height: 1.9rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
 .title-input {
     margin: 0;
     padding: 0;
