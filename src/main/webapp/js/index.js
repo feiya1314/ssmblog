@@ -76,7 +76,7 @@ function entryInit(json) {
         console.debug(id);
         console.debug(title);
         console.debug(imgurl);
-        var appendContent=getStoryItem(id,title)+getActionList(imgurl);
+        var appendContent=getStoryItem(id,title)+getActionList(imgurl,id);
         $(".flag").before(appendContent);
     }
 }
@@ -85,8 +85,8 @@ function getStoryItem(id,title){
     var str2="<div class=\"entryinfo\"><div class=\"entrytitle\"><p class=\"entrytitlecontent\">"+title+"</p></div></div></a></div>";
     return str1+str2;
 }
-function getActionList(entryimage) {
-    var str1="<div class=\"actionlist\"><a class=\"collectBtn\"><span class=\"icon\"></span><span class=\"actionTitle\">收藏</span><a class=\"shareBtn\">"
+function getActionList(entryimage,id) {
+    var str1="<div class=\"actionlist\"><a onclick=\"collectStory("+id+")\" class=\"collectBtn\"><span class=\"icon\"></span><span class=\"actionTitle\">收藏</span></a><a class=\"shareBtn\">"
             +"<span class=\"icon\"></span><span class=\"actionTitle\">分享</span></a></div></div><div class=\"entryimage\"><img src=\"";
     if(entryimage!=""){
         var imgurl="api/imgUrl?imgurl="+entryimage;

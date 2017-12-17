@@ -14,7 +14,10 @@
 <link rel="stylesheet" type="text/css" href="/blog/css/common.css"/>
 <link rel="stylesheet" type="text/css" href="/blog/css/globalCompont.css"/>
 <link rel="stylesheet" type="text/css" href="/blog/css/iconfont.css"/>
-
+<script type="application/javascript">
+    var loginOrNot='${empty sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}';
+    var userId='${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.id}';
+</script>
 <%--<link rel="stylesheet" type="text/css" href="/blog/css/ionicons.min.css"/>--%>
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 

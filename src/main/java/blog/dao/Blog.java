@@ -1,5 +1,7 @@
 package blog.dao;
 
+import java.util.Date;
+
 public class Blog {
     private Integer id;
 
@@ -10,6 +12,35 @@ public class Blog {
     private Integer userid;
 
     private String context;
+
+    private String markdown="";
+    private String preview="";
+
+    private Date time;
+
+    public String getMarkdown() {
+        return markdown;
+    }
+
+    public void setMarkdown(String markdown) {
+        this.markdown = markdown;
+    }
+
+    public String getPreview() {
+        return preview;
+    }
+
+    public void setPreview(String preview) {
+        this.preview = preview;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public Integer getId() {
         return id;

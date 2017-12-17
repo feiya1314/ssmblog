@@ -35,41 +35,9 @@
       #{userid,jdbcType=INTEGER}, #{context,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="blog.dao.Blog" >
-    insert into b_blog
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="title != null" >
-        title,
-      </if>
-      <if test="des != null" >
-        des,
-      </if>
-      <if test="userid != null" >
-        userId,
-      </if>
-      <if test="context != null" >
-        context,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="des != null" >
-        #{des,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="context != null" >
-        #{context,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
+    insert into tb_blog (id,userid,title,time,markdown,html)
+    VALUES
+    (#{id,jdbcType=INTEGER},#{userid,jdbcType=INTEGER},#{title,jdbcType=VARCHAR},#{time},#{markdown},#{preview})
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="blog.dao.Blog" >
     update b_blog

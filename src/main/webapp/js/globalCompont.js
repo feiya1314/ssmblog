@@ -92,6 +92,47 @@ new Vue({
 
 });
 new Vue({
+    el: '.writearticle',
+    methods: {
+        writeArticle: function () {
+            if(loginOrNot=='true'){
+                loginDisplayController.displayLogin(true, "login");
+            }else{
+                window.location.href="/blog/pages/editBlog.jsp";
+            }
+        }
+    }
+
+});
+
+function collectStory(storyid) {
+    if(loginOrNot=='true'){
+        loginDisplayController.displayLogin(true, "login");
+    }else{
+        var jsoncollectStory='{"userid":"'+userId+'","storyid":"'+storyid+'"}';
+        jsoncollectStory="userid="+userId+"&storyid="+storyid;
+        /*var jsonForm = {};
+        jsonForm["userid"]=userId;
+        jsonForm["storyid"]=storyid;
+        var json=JSON.stringify(jsonForm);*/
+        $.ajax(
+            {
+                url: "/blog/user/collect",
+                type: "POST",
+                dataType: "JSON",
+                data: jsoncollectStory,
+                success: function (data, textStatus, jqXHR) {
+                    alert(data);
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("error");
+                }
+            }
+        );
+    }
+}
+new Vue({
     el: '.headImgContainer',
     data: {
         displayMenu: 'none',
@@ -187,7 +228,7 @@ function processAjaxSubmit() {
                     var jsonResult = XMLHttpRequest.responseJSON;
                     var errcode = jsonResult.errorCode;
                     if (errcode == 101) {
-                        loginDisplayController.changeUsernameErrorMessage(true, "用户名未被注册")
+                        loginDisplayController.changeUsernameErrorMessage(true, "用户名未被注册");
                         return;
                     }
                     if (errcode == 102) {

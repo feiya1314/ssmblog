@@ -42,7 +42,13 @@ public class BlogService extends BaseService<Blog> implements IBlogService{
 		blogMapper.insertSelective(blog);
 		
 	}
-   /**
+
+	@Override
+	public void creatBlog(Blog blog) {
+		blogMapper.insertSelective(blog);
+	}
+
+	/**
     * 改博客
     */
 	@Override

@@ -21,6 +21,8 @@
     <security:http pattern="/get/*" security="none"></security:http>
     <security:http pattern="/get/entry/*" security="none"></security:http>
     <security:http pattern="/index.jsp" security="none"></security:http>
+    <security:http pattern="/pages/adminLoginLogin.jsp" security="none"></security:http>
+    <security:http pattern="/pages/customerLogin.jsp" security="none"></security:http>
     <!--<security:http pattern="/" security="none"></security:http>-->
 
     <!--设置匹配admin url，登录页面和所拥有的权限，以及引用adminAutnenticationManager验证管理 -->
@@ -43,7 +45,7 @@
                              -->
         <security:logout logout-url="/user/logout" logout-success-url="/index.jsp"/>
         <security:custom-filter ref="ajaxUsernamePasswordAuthFilter" position="FORM_LOGIN_FILTER"></security:custom-filter>
-        <security:intercept-url pattern="/user/**" access="hasRole('USER_ROLE')"></security:intercept-url>
+        <security:intercept-url pattern="/**" access="hasRole('USER_ROLE')"></security:intercept-url>
     </security:http>
 
     <security:authentication-manager id="adminAutnenticationManager">

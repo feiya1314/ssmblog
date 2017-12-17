@@ -13,4 +13,5 @@ public interface BlogMapper extends IBaseMapper<Blog> {
 	public void deleteByIdAndUserId(@Param("userid")Integer userid,@Param("id")Integer id);
 	//获取特定会员所有博客
 	public List<BlogDetails> getUserBlogDetails(Integer userId);
+
 }

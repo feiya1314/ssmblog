@@ -19,6 +19,8 @@ public interface IBlogService extends IBaseService<Blog>{
      * @param userId
      */
 	public void createBlog(Blog blog,Integer userId);
+
+	void creatBlog(Blog blog);
 	/**
 	 * 更新博客
 	 * @param blog
