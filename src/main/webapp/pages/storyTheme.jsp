@@ -60,34 +60,6 @@
                             </div>
                         </div>
                         </c:forEach>
-                        <%--<div class="storyitem">
-                            <div class="entry">
-                                <div class="entryAddrAndAction">
-                                    <div class="entryAddr">
-                                        <a href="/blog/get/entry/9657004" target="_blank" title="">
-                                            <div class="entryinfo">
-                                                <div class="entrytitle">
-                                                    <p class="entrytitlecontent">woxianzaishigeceshi 很好的护额韩国</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="actionlist">
-                                        <a class="collectBtn">
-                                            <span class="icon"></span>
-                                            <span class="actionTitle">收藏</span>
-                                        </a>
-                                        <a class="shareBtn">
-                                            <span class="icon"></span>
-                                            <span class="actionTitle">分享</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="entryimage">
-                                    <img src="/blog/images/entrydefault.png">
-                                </div>
-                            </div>
-                        </div>--%>
 
                         <div class="flag"><br></div>
                     </div>
