@@ -23,6 +23,7 @@
     <security:http pattern="/index.jsp" security="none"></security:http>
     <security:http pattern="/pages/adminLoginLogin.jsp" security="none"></security:http>
     <security:http pattern="/pages/customerLogin.jsp" security="none"></security:http>
+    <security:http pattern="/register" security="none"></security:http>
     <!--<security:http pattern="/" security="none"></security:http>-->
 
     <!--设置匹配admin url，登录页面和所拥有的权限，以及引用adminAutnenticationManager验证管理 -->
