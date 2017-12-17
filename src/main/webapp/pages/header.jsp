@@ -50,7 +50,7 @@
                                     <div v-on:click="displayDropMenu"class="avatar lazy">
                                         <img src="/blog/images/3.jpg" class="headImg">
                                     </div>
-                                    <ul class="nav-menu user-dropdown-list" v-bind:style="{display:displayMenu}">
+                                    <ul class="nav-menu user-dropdown-list" v-bind:style="{display:displayMenu}" v-cloak>
                                         <div class="nav-menu-item-group">
                                             <li class="nav-menu-item">
                                                 <a href="/blog/pages/editBlog.jsp"><i class="fengwei fw-write"></i><span>写文章</span></a>
