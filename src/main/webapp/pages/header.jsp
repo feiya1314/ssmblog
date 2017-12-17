@@ -35,7 +35,7 @@
                             <li class="nav-item">
                                 <a class="moreContent" href="#">更多内容</a>
                             </li>
-                            <li class="nav-item writearticle">
+                            <li v-on:click="writeArticle" class="nav-item writearticle">
                                 <img src="/blog/images/article.svg" class="articleicon">
                                 <span class="towrite">写文章</span>
                             </li>
@@ -53,7 +53,7 @@
                                     <ul class="nav-menu user-dropdown-list" v-bind:style="{display:displayMenu}">
                                         <div class="nav-menu-item-group">
                                             <li class="nav-menu-item">
-                                                <a><i class="fengwei fw-write"></i><span>写文章</span></a>
+                                                <a href="/blog/pages/editBlog.jsp"><i class="fengwei fw-write"></i><span>写文章</span></a>
                                             </li>
                                             <li class="nav-menu-item">
                                                 <a><i class="fengwei fw-draft"></i><span>草稿</span></a>
