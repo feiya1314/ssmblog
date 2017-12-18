@@ -19,7 +19,7 @@
         <i title="关闭" v-on:click="displayLogin(false)" class="close-btn ion-close-round"></i>
         <div class="panel">
             <h1 class="loginTitle">{{login_register}}</h1>
-            <div class="input-group">
+            <div @keyup.13="submitForm" class="input-group">
                 <div v-if="isLogin" class="input-box">
                     <input v-on:focus="clearErrorMsg" name="username" maxlength="64" placeholder="请输入账号" class="input">
                     <label v-if="usernameMsgDisplay"  class="errorInfo">{{usernameMsg}}</label>
