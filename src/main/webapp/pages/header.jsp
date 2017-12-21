@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="nav-menu-item-group">
                                             <li class="nav-menu-item">
-                                                <a href="/user/5788c2d1165abd00670b4c33"><i class="fengwei fw-person"></i><span>我的主页</span></a>
+                                                <a href="/blog/pages/user.jsp"><i class="fengwei fw-person"></i><span>我的主页</span></a>
                                             </li>
                                             <%--<li class="nav-menu-item">
                                                 <a href="/user/5788c2d1165abd00670b4c33/like"><i class="fengwei fw-like"></i><span>我喜欢的</span></a>
