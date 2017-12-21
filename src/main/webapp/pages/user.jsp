@@ -4,10 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <jsp:include page="/pages/common.jsp"></jsp:include>
 <title>Insert title here</title>
 </head>
 <body>
+<div class="viewcontainer">
+  <jsp:include page="/pages/globalComponent.jsp"></jsp:include>
+  <jsp:include page="/pages/header.jsp"></jsp:include>
+</div>
   <a>User:</a><br>
   <a>hello !${user.name}</a><br>
+
+  <script type="text/javascript" src="/blog/js/globalCompont.js"></script>
 </body>
 </html>
