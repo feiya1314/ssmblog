@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>写文章</title>
+    <link rel="icon" href="/blog/images/logoFlyicon.png">
     <link rel="stylesheet" type="text/css" href="/blog/css/markdownEditor.css"/>
     <link rel="stylesheet" type="text/css" href="/blog/css/markdown7.css"/>
     <script src="/blog/js/showdown.min.js"></script>
