@@ -100,7 +100,7 @@ public class ImageUtil {
                 rgb[1] = (pixel & 0xff00) >> 8;
                 rgb[2] = (pixel & 0xff);
                 chazhi=Math.abs(rgb[0]-rgbBack[0])+Math.abs(rgb[1]-rgbBack[1])+Math.abs(rgb[2]-rgbBack[2]);
-                if(chazhi>55){
+                if(chazhi>35){
                     end=true;
                     x=j;
                     y=i;

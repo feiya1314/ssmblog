@@ -14,7 +14,7 @@ public class Jump {
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
-            if(i==6){
+            if(i==8){
                 i=0;
             }
             if(i<3){
@@ -22,6 +22,7 @@ public class Jump {
             }else {
                 magic=1.30;
             }
+            i++;
             imageUtil.jumpNow(magic);
             try {
                 Thread.sleep(1000);
