@@ -22,6 +22,7 @@ public class Jump {
             }else {
                 magic=1.30;
             }
+            //test
             i++;
             imageUtil.jumpNow(magic);
             try {
