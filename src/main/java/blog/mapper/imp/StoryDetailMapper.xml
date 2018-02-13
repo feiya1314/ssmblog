@@ -8,7 +8,7 @@
 		<result column="body" property="body" jdbcType="BLOB"/>
 	</resultMap>
 
-	<!-- 自己编写的方法 -->
+
 	<select id="getStoryDetailById" parameterType="java.lang.Integer" resultMap="StoryDetailEntry">
 		select title,body,image,image_source from tb_storydetails where uid=#{id}
 	</select>

@@ -55,7 +55,7 @@
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-   <!-- 自己编写的方法 -->
+
   <select id="getRoleListByUserId" parameterType="java.lang.Integer" resultType="blog.dao.Role">
     select r.*  from b_role r 
     left join b_user_role ur on r.id=ur.roleId

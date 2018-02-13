@@ -7,7 +7,7 @@
 		<result column="image" property="image" jdbcType="VARCHAR" />
 	</resultMap>
 
-	<!-- 自己编写的方法 -->
+
 	<select id="getStoryById" parameterType="java.lang.Integer" resultMap="baseStory">
 		select uid,title,image from tb_story where uid=#{id}
 	</select>

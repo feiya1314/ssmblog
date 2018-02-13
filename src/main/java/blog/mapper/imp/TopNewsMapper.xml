@@ -8,7 +8,6 @@
 		<result column="date" property="topdate" jdbcType="INTEGER" />
 	</resultMap>
 
-	<!-- 自己编写的方法 -->
 	<select id="getTopNewsByDate" parameterType="java.lang.String" resultMap="baseTopNewsList">
 		select uid,title,date,image from tb_topstory where date=#{date}
 	</select>

@@ -7,7 +7,7 @@
 		<result column="thumbnail" property="image" jdbcType="VARCHAR" />
 	</resultMap>
 
-	<!-- 自己编写的方法 -->
+
 	<select id="getHotStoryById" parameterType="java.lang.Integer" resultMap="baseHotNews">
 		select uid,title,image from tb_hotnews where uid=#{id}
 	</select>

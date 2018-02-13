@@ -72,7 +72,7 @@
       userId = #{userid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <!-- 自定义 -->
+
   <delete id="deleteByIdAndUserId">
    delete from b_blog where id=#{id} and userId=#{userid}
   </delete>

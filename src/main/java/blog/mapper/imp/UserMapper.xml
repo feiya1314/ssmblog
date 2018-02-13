@@ -139,7 +139,7 @@
 		address = #{address,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<!-- 自己编写的方法 -->
+
 	<select id="getUserDetailsById" parameterType="java.lang.Integer"
 		resultType="blog.dto.output.UserDetails">
 		select * from b_user where id=#{id}

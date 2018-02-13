@@ -68,7 +68,6 @@
       roleId = #{roleid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <!-- 自定义的方法 -->
   <select id="getRoleIdListByUserId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     select roleId from b_user_role where userId=#{userId}
   </select>
