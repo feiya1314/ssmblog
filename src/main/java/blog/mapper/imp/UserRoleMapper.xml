@@ -84,6 +84,7 @@
             #{item}
         </foreach>
   </delete>
+  <!--test-->
   <delete id="deleteByUserIdList">
       DELETE FROM b_user_role WHERE userId in
         <foreach collection="UserIdList" index="index" item="item" open="("  separator="," close=")">
