@@ -30,7 +30,8 @@ public class IndexController {
     @RequestMapping(value = "/moreStories",method = RequestMethod.GET)
     public AjaxResult getMoreStories(String date){
         MoreStories moreStories=new MoreStories();
-        moreStories.setStories(iStoryService.getStoryByDate(date));
+        //moreStories.setStories(iStoryService.getStoryByDate(date));
+        moreStories.setStories(iStoryService.getStoryByNum(20));
         return AjaxResult.getOK(moreStories);
     }
 
