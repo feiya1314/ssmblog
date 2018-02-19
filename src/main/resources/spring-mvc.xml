@@ -11,6 +11,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springfr
 
 	 <!-- 扫描包路径 -->
     <context:component-scan base-package="blog.controller"></context:component-scan>
+	<!--aop log-->
 	<bean id="logAdvice" class="blog.aop.LoggerAdvice"></bean>
 	<aop:config proxy-target-class="true">
 		<aop:aspect ref="logAdvice">
